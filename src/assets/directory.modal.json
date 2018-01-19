@@ -1,0 +1,298 @@
+{
+    "items": [
+        {
+            "name": "Artisans",
+            "children": [
+                {
+                    "name": "Electrician",
+                    "information": "A tradesperson specializing in electrical wiring of buildings",
+                    "price": "25",
+                    "group": "Artisans"
+                },
+                {
+                    "name": "Plumber",
+                    "information": "A tradesperson who specializes in installing and maintenance ",
+                    "price": "19 ",
+                    "group": "Artisans"
+                },
+                {
+                    "name": "Carpenter",
+                    "information": "A skilled trade in performing cutting, shaping and installation",
+                    "price": "19 ",
+                    "group": "Artisans"
+                },
+                {
+                    "name": "Painter",
+                    "information": "The practice of applying paint, pigment, color to a solid surface. ",
+                    "price": "19 ",
+                    "group": "Artisans"
+                }
+            ]
+        },
+        {
+            "name": "Food And Agriculture",
+            "children": [
+                {
+                    "name": "Farmer",
+                    "information": "People engaged in agriculture, raising living organisms.",
+                    "price": "25",
+                    "group": "Food And Agriculture"
+                },
+                {
+                    "name": "Butcher",
+                    "information": "A person who may slaughter animals, dress their flesh",
+                    "price": "19 ",
+                    "group": "Food And Agriculture"
+                },
+                {
+                    "name": "Food Vendor",
+                    "information": "Street food is ready-to-eat food or drink sold by a hawker",
+                    "price": "19 ",
+                    "group": "Food And Agriculture"
+                },
+                {
+                    "name": "Fisherman",
+                    "information": "A person who catches fish for a living or for sport.",
+                    "price": "19 ",
+                    "group": "Food And Agriculture"
+                }
+            ]
+        },
+      
+        {
+            "name": "Security Service",
+            "children": [
+                {
+                    "name": "Police Station",
+                    "information": " police officers and other members of staff.",
+                    "price": "25",
+                    "group": "Security Service",
+                    "icon":""
+                },
+                {
+                    "name": "Fire Service",
+                    "information": "Rescue service agency under ministry of interior",
+                    "price": "19",
+                    "group": "Security Service",
+                    "icon":""
+                }
+            ]
+        },
+
+        {
+            "name": "Health",
+            "children": [
+                {
+                    "name": "Hospital",
+                    "information": "A health care institution providing patient treatment with specialized medical and nursing staff and medical equipment",
+                    "price": "25",
+                    "group": "Health",
+                    "icon":""
+                },
+                {
+                    "name": "Clinic",
+                    "information": " a healthcare facility that is primarily focused on the care of outpatients. Clinics can be privately operated or publicly managed and funded.",
+                    "price": "19",
+                    "group": "Health",
+                    "icon":""
+                },
+                {
+                    "name": "Herbal Center",
+                    "information": "Centers practicing of the medicinal and therapeutic use of plants.",
+                    "price": "19",
+                    "group": "Health",
+                    "icon":""
+                }
+            ]
+        },
+        {
+            "name": "Professionals",
+            "children": [
+                {
+                    "name": "All",
+                    "children": [
+                        {
+                            "name": "Computer Engineer",
+                            "information": "A disciplain that develop computer hardware and software.",
+                            "price": "10",
+                            "group": "Professionals",
+                            "icon":""
+                        },
+                        {
+                            "name": "Counselor",
+                            "information": "A person whose job is to provide advice, help, or encouragement",
+                            "price": "12",
+                            "group": "Professionals",
+                            "icon":""
+                        },
+                        {
+                            "name": "Banker",
+                            "information": "One who conducts the business of banking as a member of a company",
+                            "price": "12",
+                            "group": "Professionals",
+                            "icon":""
+                        },
+                        {
+                            "name": "Administrator",
+                            "information": "People who are responsible for carrying out the administration of a business.",
+                            "price": "12",
+                            "group": "Professionals",
+                            "icon":""
+                        },
+                        {
+                            "name": "Journalist",
+                            "information": "A person who collects, writes, or distributes news, current information.",
+                            "price": "12",
+                            "group": "Professionals",
+                            "icon":""
+                        }
+                    ]
+                },
+                {
+                    "name": "Civil",
+                    "children": [
+                        {
+                            "name": "Lawyer",
+                            "information": "People who practices law, as a paralegal, advocate, barrister, attorney, counselor, solicitor",
+                            "price": "12",
+                            "group": "Professionals",
+                            "icon":""
+                        },
+                        {
+                            "name": "Doctor",
+                            "information": "Professional who practises medicine, which is concerned with promoting, restoring health through the study",
+                            "price": "12",
+                            "group": "Professionals",
+                            "icon":""
+                        },
+                        {
+                            "name": "Nurse",
+                            "information": "Profession focused on the care for people and help to recover optimal health and quality of life",
+                            "price": "12",
+                            "group": "Professionals",
+                            "icon":""
+                        },
+                        {
+                            "name": "Teacher",
+                            "information": "A person who helps others to acquire knowledge, competences or values",
+                            "price": "12",
+                            "group": "Professionals",
+                            "icon":""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Educational",
+            "children": [
+                {
+                    "name": "Formal",
+                    "children": [
+                        {
+                            "name": "Tertiary",
+                            "information": "post-secondary education, is the educational level following the completion of a school providing a secondary education.",
+                            "price": "10",
+                            "group": "Educational"
+                        },
+                        {
+                            "name": "High schools",
+                            "information": "A secondary school is both an organization that provides secondary education",
+                            "price": "12",
+                            "group": "Educational"
+
+                        },
+                        {
+                            "name": "Junior High schools",
+                            "information": "A middle school is an educational stage which exists in some countries, providing education between primary school and high school.",
+                            "price": "12",
+                            "group": "Educational"
+
+                        },
+                        {
+                            "name": "Training Institutions",
+                            "information": "Public or private institution of higher education which has implemented a training program for public school teachers designed to improve skills",
+                            "price": "12",
+                            "group": "Educational"
+
+                        }
+                    ]
+                },
+                {
+                    "name": "Skilled",
+                    "children": [
+                        {
+                            "name": "Vocational",
+                            "information": "Prepares people to work in various jobs, such as a trade, a craft, or as a technician.",
+                            "price": "13",
+                            "group": "Educational"
+
+                        },
+                        {
+                            "name": "Technical",
+                            "information": " institutions, and educational programs that specialize in the skilled trades, applied sciences, modern technologies, and career preparation.",
+                            "price": "14",
+                            "group": "Educational"
+
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Creative Arts",
+            "children": [
+                {
+                    "name": "Entertainment",
+                    "children": [
+                        {
+                            "name": "Photographer",
+                            "information": "",
+                            "price": "10"
+                        },
+                        {
+                            "name": "Graphic Designer",
+                            "information": "",
+                            "price": "12"
+                        },
+                        {
+                            "name": "Media Houses",
+                            "information": "",
+                            "price": "12"
+                        },
+                        {
+                            "name": "Decor",
+                            "information": "",
+                            "price": "12"
+                        }
+                    ]
+                },
+                {
+                    "name": "Information Service",
+                    "children": [
+                        {
+                            "name": "Internet Cafe",
+                            "information": "",
+                            "price": "13"
+                        },
+                        {
+                            "name": "Newsstands",
+                            "information": "",
+                            "price": "14"
+                        },
+                        {
+                            "name": "Information Centers",
+                            "information": "",
+                            "price": "11"
+                        },
+                        {
+                            "name": "Printing Press",
+                            "information": "",
+                            "price": "14"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

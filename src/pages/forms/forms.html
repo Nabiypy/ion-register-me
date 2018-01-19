@@ -1,6 +1,5 @@
 <!--
   Generated template for the FormsPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -10,54 +9,112 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding *ngIf="sikafoneForm">
+<ion-content padding *ngIf="electricianForm">
   <!-- <h2>Add Merchant</h2> -->
-  <form (ngSubmit)="addBusiness()">
-    <ion-item>
-      <ion-input type="text" 
-                 placeholder="Agent Shop Name" 
-                 name="officeName"  
-                 [(ngModel)]="formValues.officeName" >
-              </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="text" 
-                 placeholder="Shop owner" 
-                 name="otherNames"  
-                 [(ngModel)]="formValues.otherNames" >
-              </ion-input>
-    </ion-item>
-    <ion-item>
-       <ion-input type="email" 
-                 placeholder="Email" 
-                 name="email"  
-                 [(ngModel)]="formValues.email" >
-              </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="text" 
-                 placeholder="Contact Number" 
-                 name="mobile"  
-                 [(ngModel)]="formValues.mobile" >
-              </ion-input>
-    </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-list inset>
+        <ion-item>
+          <ion-input type="text" 
+                      placeholder="Shop Name" 
+                      name="officeName"  
+                      [(ngModel)]="formValues.officeName" >
+                  </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" 
+                     placeholder="Shop owner" 
+                     name="otherNames"  
+                     [(ngModel)]="formValues.otherNames" >
+                  </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" 
+                     placeholder="Contact Number" 
+                     name="mobile"  
+                     [(ngModel)]="formValues.mobile" >
+                  </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="email" 
+                    placeholder="Email" 
+                    name="email"  
+                    [(ngModel)]="formValues.email" >
+                 </ion-input>
+       </ion-item>
+   
+       <ion-item>
+         <ion-input placeholder="Your Location" 
+                    name="location" 
+                    type="text" 
+                    [(ngModel)]="formValues.location">
+                   </ion-input>
+       </ion-item>
+       <ion-item>
+         <button ion-button round color="primary" (click)="takePicture()" full>
+           <ion-icon name="md-camera"></ion-icon>
+         </button>
+       </ion-item>
+        
+      </ion-list>
+    </ion-col>
+  </ion-row>
 
-    <ion-item>
-      <ion-input placeholder="Your Location" 
-                 name="geolocation" 
-                 type="textarea" 
-                 [(ngModel)]="formValues.geolocation">
-                </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Upload image" 
-                 name="fileUpload" 
-                 type="file"  
-                 [(ngModel)]="formValues.fileUpload">
-                </ion-input>
-    </ion-item>
-    <button ion-button type="submit" block>Add {{selectedName}}</button>
-  </form>
+  <div *ngIf="currentLocation" class="alert alert-danger">{{ currentLocation }}</div>
+  <button ion-button type="submit" block (click)="addBusiness()">Add {{selectedName}}</button>
+
+</ion-content>
+
+<ion-content padding *ngIf="plumberForm">
+  <ion-row>
+    <ion-col>
+      <ion-list inset>
+        <ion-item>
+          <ion-input placeholder="Company Name" 
+                     name="officeName" 
+                     type="text" required 
+                     [(ngModel)]="formValues.officeName">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Worker Name" 
+                     name="otherNames" 
+                     type="text" required 
+                     [(ngModel)]="formValues.otherNames">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Contact Number" 
+                     name="mobile" 
+                     type="text" required 
+                     [(ngModel)]="formValues.mobile">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Location" 
+                     name="location" 
+                     type="text" required 
+                     [(ngModel)]="formValues.location">
+                    </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <button ion-button round color="primary" (click)="takePicture()" full>
+            <ion-icon name="md-camera"></ion-icon>
+          </button>
+        </ion-item>
+
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+      <div *ngIf="currentLocation" class="alert alert-danger">{{ currentLocation }}</div>
+      <button ion-button class="submit-btn" full (click)="addBusiness()">Add {{selectedName}}</button>
+    </ion-col>
+  </ion-row>
 </ion-content>
 
 <ion-content padding *ngIf="farmersForm">
@@ -65,7 +122,58 @@
     <ion-col>
       <ion-list inset>
         <ion-item>
-          <ion-input placeholder="Farmer's Name" 
+          <ion-input placeholder={{selectedName}} 
+                     name="officeName" 
+                     type="text" required 
+                     [(ngModel)]="formValues.officeName">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Contact Number" 
+                     name="mobile" 
+                     type="text" required 
+                     [(ngModel)]="formValues.mobile">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Location" 
+                     name="location" 
+                     type="text" required 
+                     [(ngModel)]="formValues.location">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea placeholder="Items" 
+                     name="otherInfo" 
+                     type="text" 
+                     [(ngModel)]="formValues.otherInfo">
+          </ion-textarea>
+        </ion-item>
+        <ion-item>
+          <button ion-button round color="primary" (click)="takePicture()" full>
+            <ion-icon name="md-camera"></ion-icon>
+          </button>
+        </ion-item>
+
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+      <div *ngIf="currentLocation" class="alert alert-danger">{{ currentLocation }}</div>
+      <button ion-button class="submit-btn" full (click)="addBusiness()">Add {{selectedName}}</button>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-content padding *ngIf="farmerForm">
+  <ion-row>
+    <ion-col>
+      <ion-list inset>
+        <ion-item>
+          <ion-input placeholder={{selectedName}} 
                      name="officeName" 
                      type="text" required 
                      [(ngModel)]="formValues.officeName">
@@ -86,26 +194,25 @@
                     </ion-input>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Address" 
-                     name="homeTown" 
+          <ion-input placeholder="Location" 
+                     name="location" 
                      type="text" required 
-                     [(ngModel)]="formValues.homeTown">
+                     [(ngModel)]="formValues.location">
                     </ion-input>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Crops" 
+          <ion-textarea placeholder="Crops/Products" 
                      name="otherInfo" 
-                     type="textarea" 
+                     type="text" 
                      [(ngModel)]="formValues.otherInfo">
-                    </ion-input>
+          </ion-textarea>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Upload farm image" 
-                     name="mobile" 
-                     type="file" required 
-                     [(ngModel)]="formValues.fileUpload">
-                    </ion-input>
+          <button ion-button round color="primary" (click)="takePicture()" full>
+            <ion-icon name="md-camera"></ion-icon>
+          </button>
         </ion-item>
+
       </ion-list>
     </ion-col>
   </ion-row>
@@ -113,15 +220,15 @@
   <ion-row>
     <ion-col>
       <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-      <button ion-button class="submit-btn" full (click)="onSubmt()">Add {{selectedName}}</button>
+      <div *ngIf="currentLocation" class="alert alert-danger">{{ currentLocation }}</div>
+      <button ion-button class="submit-btn" full (click)="addBusiness()">Add {{selectedName}}</button>
     </ion-col>
   </ion-row>
-
-
 </ion-content>
 
 
 <ion-content padding *ngIf="schoolsForm">
+  <span *ngIf="currentLocation">{{ currentLocation }}</span>  
   <ion-row>
     <ion-col>
       <ion-list inset>
@@ -147,7 +254,7 @@
                     </ion-input>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Address" 
+          <ion-input placeholder="Location" 
                      name="homeTown" 
                      type="text" required 
                      [(ngModel)]="formValues.homeTown">
@@ -161,11 +268,9 @@
                     </ion-input>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Upload image" 
-                     name="mobile" 
-                     type="file" required 
-                     [(ngModel)]="formValues.fileUpload">
-                    </ion-input>
+          <button ion-button round color="primary" (click)="takePicture()" full>
+            <ion-icon name="md-camera"></ion-icon>
+          </button>
         </ion-item>
       </ion-list>
     </ion-col>
@@ -180,8 +285,9 @@
 
 </ion-content>
 
-
 <ion-content padding *ngIf="merchanicsForm">
+    <span *ngIf="currentLocation">{{ currentLocation }}</span>  
+
   <ion-row>
     <ion-col>
       <ion-list inset>
@@ -207,18 +313,17 @@
                     </ion-input>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Address" 
-                     name="homeTown" 
+          <ion-input placeholder="Location" 
+                     name="location" 
                      type="text" required 
-                     [(ngModel)]="formValues.homeTown">
+                     [(ngModel)]="formValues.location">
                     </ion-input>
         </ion-item>
+   
         <ion-item>
-          <ion-input placeholder="Upload image" 
-                     name="mobile" 
-                     type="file" required 
-                     [(ngModel)]="formValues.fileUpload">
-                    </ion-input>
+          <button ion-button round color="primary" (click)="takePicture()" full>
+            <ion-icon name="md-camera"></ion-icon>
+          </button>
         </ion-item>
       </ion-list>
     </ion-col>
@@ -227,13 +332,15 @@
   <ion-row>
     <ion-col>
       <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-      <button ion-button class="submit-btn" full (click)="onSubmt()">Add {{selectedName}}</button>
+      <button ion-button class="submit-btn" full (click)="addBusiness()">Add {{selectedName}}</button>
     </ion-col>
   </ion-row>
 
 </ion-content>
 
 <ion-content padding *ngIf="shopsForm">
+    <span *ngIf="currentLocation">{{ currentLocation }}</span>  
+
   <ion-row>
     <ion-col>
       <ion-list inset>
@@ -259,10 +366,10 @@
                     </ion-input>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Address" 
-                     name="homeTown" 
+          <ion-input placeholder="Location" 
+                     name="location" 
                      type="text" required 
-                     [(ngModel)]="formValues.homeTown">
+                     [(ngModel)]="formValues.location">
                     </ion-input>
         </ion-item>
         <ion-item>
@@ -273,11 +380,9 @@
                     </ion-input>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Upload image" 
-                     name="mobile" 
-                     type="file" required 
-                     [(ngModel)]="formValues.fileUpload">
-                    </ion-input>
+          <button ion-button round color="primary" (click)="takePicture()" full>
+            <ion-icon name="md-camera"></ion-icon>
+          </button>
         </ion-item>
       </ion-list>
     </ion-col>
@@ -286,33 +391,188 @@
   <ion-row>
     <ion-col>
       <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-      <button ion-button class="submit-btn" full (click)="onSubmt()">Add {{selectedName}}</button>
+      <button ion-button class="submit-btn" full (click)="addBusiness()">Add {{selectedName}}</button>
     </ion-col>
   </ion-row>
 
 
 </ion-content>
 
-<ion-content padding *ngIf="serviceForm">
+<ion-content padding *ngIf="servicesForm">
+    <span *ngIf="currentLocation">{{ currentLocation }}</span>  
   <ion-row>
     <ion-col>
       <ion-list inset>
         <ion-item>
-          <ion-input placeholder="Username" name="username" type="text" required [(ngModel)]="username"></ion-input>
+          <ion-input placeholder={{selectedName}} 
+                      name="officeName" 
+                      type="text" required 
+                      [(ngModel)]="formValues.officeName">
+                    </ion-input>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Password" name="password" type="password" required [(ngModel)]="password"></ion-input>
+          <ion-input placeholder="Owner" 
+                      name="otherNames" 
+                      type="text" required 
+                      [(ngModel)]="formValues.otherNames">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Contact Number" 
+                      name="mobile" 
+                      type="text" required 
+                      [(ngModel)]="formValues.mobile">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Location" 
+                      name="location" 
+                      type="text" required 
+                      [(ngModel)]="formValues.location">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Email Address" 
+                      name="email" 
+                      type="email" 
+                      [(ngModel)]="formValues.email">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input placeholder="Website Address" 
+                        name="websiteUrl" 
+                        type="text" 
+                        [(ngModel)]="formValues.websiteUrl">
+                      </ion-input>
+          </ion-item>
+        <ion-item>
+          <button ion-button round color="primary" (click)="takePicture()" full>
+            <ion-icon name="md-camera"></ion-icon>
+          </button>
         </ion-item>
       </ion-list>
     </ion-col>
   </ion-row>
 
+  <ion-row>
+    <ion-col>
+      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+      <button ion-button class="submit-btn" full (click)="addBusiness()">Submit {{selectedName}}</button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-content padding *ngIf="dealersForm">
+    <span *ngIf="currentLocation">{{ currentLocation }}</span>  
+  <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="Busines Name" 
+                        name="officeName" 
+                        type="text" required 
+                        [(ngModel)]="formValues.officeName">
+                      </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Owner" 
+                        name="otherNames" 
+                        type="text" required 
+                        [(ngModel)]="formValues.otherNames">
+                      </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Contact Number" 
+                        name="mobile" 
+                        type="text" required 
+                        [(ngModel)]="formValues.mobile">
+                      </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Location" 
+                        name="location" 
+                        type="text" required 
+                        [(ngModel)]="formValues.location">
+                      </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Email Address" 
+                        name="email" 
+                        type="email" 
+                        [(ngModel)]="formValues.email">
+                      </ion-input>
+          </ion-item>
+          <ion-item>
+            <button ion-button round color="primary" (click)="takePicture()" full>
+              <ion-icon name="md-camera"></ion-icon>
+            </button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
 
   <ion-row>
     <ion-col>
       <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-      <button ion-button class="submit-btn" full (click)="onLogin()">Submit {{selectedName}}</button>
+      <button ion-button class="submit-btn" full (click)="addBusiness()">Submit {{selectedName}}</button>
     </ion-col>
   </ion-row>
 
+</ion-content>
+
+<ion-content padding *ngIf="momoForm">
+  <!-- <h2>Add Merchant</h2> -->
+  <span *ngIf="currentLocation" >{{ currentLocation }}</span>  
+
+  <ion-item>
+    <ion-input type="text" 
+                placeholder="Merchant Name" 
+                name="officeName"  
+                [(ngModel)]="formValues.officeName" >
+            </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" 
+                placeholder="Shop owner" 
+                name="otherNames"  
+                [(ngModel)]="formValues.otherNames" >
+            </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" 
+                placeholder="Contact Number" 
+                name="mobile"  
+                [(ngModel)]="formValues.mobile" >
+            </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-input type="email" 
+                placeholder="Email" 
+                name="email"  
+                [(ngModel)]="formValues.email" >
+            </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input placeholder="Your Location" 
+                name="location" 
+                type="text" 
+                [(ngModel)]="formValues.location">
+              </ion-input>
+  </ion-item>
+  <ion-item>
+    <button ion-button round color="primary" (click)="takePicture()" full>
+      <ion-icon name="md-camera"></ion-icon>
+    </button>
+  </ion-item>
+
+  <ion-row>
+    <ion-col>
+      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+      <button ion-button class="submit-btn" full (click)="addBusiness()">Submit {{selectedName}}</button>
+    </ion-col>
+  </ion-row>
+  
 </ion-content>

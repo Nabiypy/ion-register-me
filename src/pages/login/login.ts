@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 
 import { AuthProvider } from '../../providers/auth/auth';
 import { User } from '../../models/user.model';
+import { SignupPage } from '../signup/signup';
 
 /**
  * Generated class for the LoginPage page.
@@ -27,11 +28,19 @@ export class LoginPage {
     public navParams: NavParams, 
     public authService: AuthProvider,
     public loadingCtrl: LoadingController,
-    public store: Storage) {
+    public storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+
+    this.storage.get('username').then((userId) => {
+      console.log('isLoggedIn >>>', userId);
+      if(userId !== null){
+        this.navCtrl.setRoot('TabsPage');
+      }
+    });
+  
   }
 
   onLogin() {
@@ -42,8 +51,24 @@ export class LoginPage {
     }
   }
 
+  login(){
+    console.log('login credentials', this.credentials)
+    this.showLoader();
+    this.storage.set('username', this.credentials.username);
+    this.authService.signIn(this.credentials).then((result) => {
+        console.log('@LoginCtrl login result >>>',result);
+        this.isLoading.dismiss();
+        this.navCtrl.setRoot('TabsPage');
+    }, (err) => {
+        this.isLoading.dismiss();
+        console.log(err);
+        this.navCtrl.setRoot('TabsPage');
+    });
+  }
+
+
   signUp(){
-    this.navCtrl.push('SignupPage');
+    this.navCtrl.push(SignupPage);
  }
   showLoader(){
     this.isLoading = this.loadingCtrl.create({

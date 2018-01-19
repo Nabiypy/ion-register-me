@@ -2,6 +2,7 @@ export class Business {
     constructor( 
         public userId: string,
         public directory: string,
+        public group: string,
         public gravatar: any,
         public officeName: string,
         public otherNames: string,
@@ -11,9 +12,11 @@ export class Business {
         public email: string,    
         public homeTown: string,      
         public position: string,
-        public geolocation: any,
+        public latitude: any,
+        public longitude: any,
+        public location?: any,
         public websiteUrl?: string,
         public fileUpload?: any,
         public landSize?: any,
-        public otherInfo?: any) { }
+        public otherInfo?: any) {}
 }

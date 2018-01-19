@@ -14,7 +14,7 @@
 <ion-content padding>
   <ion-row>
     <ion-col text-center>
-      <img src="assets/imgs/okta.png" width="300">
+      <img src="assets/imgs/registerme.png" width="300">
     </ion-col>
   </ion-row>
   
@@ -35,7 +35,8 @@
   <ion-row>
     <ion-col>
       <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-      <button ion-button class="submit-btn" full (click)="onLogin()">Login</button>
+      <button ion-button class="submit-btn" full (click)="login()">Login</button><br>
+      <button ion-button class="submit-btn" full (click)="signUp()">SignUp</button>
     </ion-col>
   </ion-row>
 

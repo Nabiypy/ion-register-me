@@ -15,4 +15,29 @@
 
 <ion-content padding>
 
+  <ion-card>
+    <ion-card-header>
+      Add directory
+    </ion-card-header>
+    <ion-card-content>
+      Login to access all Directories
+
+    </ion-card-content>
+
+    <ion-fab top right  (click)="addDirectory()">
+      <button ion-fab mini color="danger">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+  </ion-card>
+  <!-- <ion-row>
+    <ion-col>
+      <button ion-button class="submit-btn" full (click)="addDirectory()">Add Directory</button>
+    </ion-col>
+  </ion-row> -->
+  <ion-row>
+    <ion-col>
+      <button ion-button class="submit-btn" full (click)="logout()">Logout</button>
+    </ion-col>
+  </ion-row>
 </ion-content>

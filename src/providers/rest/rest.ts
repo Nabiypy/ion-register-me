@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
+
 import { Directory } from '../../models/directory.model';
 import { Business } from './../../models/business.model';
 
@@ -11,10 +13,11 @@ import { Business } from './../../models/business.model';
 */
 @Injectable()
 export class RestProvider {
-  baseUrl: any = 'http://localhost:9000';
-  result: any;
+  // baseUrl: any = 'https://sikafone-cedmbxfyuc.now.sh';
+  baseUrl: any = 'https://sikafone-itcqertdiu.now.sh';
 
-  constructor(public http: HttpClient) {
+  result: any;
+  constructor(public http: HttpClient, public storage: Storage) {
     console.log('Hello RestProvider Provider');
   }
 
@@ -23,14 +26,14 @@ export class RestProvider {
       this.http.get(this.baseUrl + '/api/directories')
         .map(res => this.result = res)
         .subscribe(data => {
+          this.storage.set('data',data);
           resolve(data);
         }, (err) => {
           reject(err);
         });
     });
-
   }
-
+  
   createDirectory(post: Directory) {
     return new Promise((resolve, reject) => {
       this.http.post(this.baseUrl + '/api/directory', JSON.stringify(post))
@@ -41,7 +44,6 @@ export class RestProvider {
           reject(err);
         });
     });
-
   }
 
   RemoveDirectory(id) {
@@ -53,10 +55,10 @@ export class RestProvider {
       });
 
     });
-
   }
 
   createBusiness(post: Business) {
+    console.log('@rest.ts Business credentials >>', post);
     return new Promise((resolve, reject) => {
       this.http.post(this.baseUrl + '/api/business', JSON.stringify(post),{
         headers: new HttpHeaders({'Content-type':'application/json'})    
@@ -68,9 +70,21 @@ export class RestProvider {
           reject(err);
         });
     });
-
   }
+  
 
+  getLocalDirectories() {
+    return new Promise((resolve, reject) => {
+      this.http.get('./assets/directory.modal.json')
+        .map(res => this.result = res)
+        .subscribe(data => {
+          this.storage.set('data',data);
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 
 }
 
