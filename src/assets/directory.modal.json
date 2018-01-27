@@ -30,6 +30,25 @@
             ]
         },
         {
+            "name": "Mobile Money Service",
+            "children": [
+                {
+                    "name": "Sikafone Agent",
+                    "information": "Agents responsible for convenient and secure way of transferring money, payments and doing other transactions using a Sikafone",
+                    "price": "25",
+                    "group": "Mobile Money Service",
+                    "icon": ""
+                },
+                {
+                    "name": "Other Mobile Money",
+                    "information": "A certified agents to ensure customers have a good experience with Mobile Money Services",
+                    "price": "19 ",
+                    "group": "Artisans",
+                    "icon": ""
+                }
+            ]
+        },
+        {
             "name": "Food And Agriculture",
             "children": [
                 {
@@ -113,7 +132,7 @@
                     "children": [
                         {
                             "name": "Computer Engineer",
-                            "information": "A disciplain that develop computer hardware and software.",
+                            "information": "A discipline that develop computer hardware and software.",
                             "price": "10",
                             "group": "Professionals",
                             "icon":""

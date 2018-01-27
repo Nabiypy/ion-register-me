@@ -31,6 +31,6 @@ export class SettingsPage {
   logout(){
     console.log('user logout');
     this.storage.remove('username');
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.setRoot(LoginPage);
   }
 }

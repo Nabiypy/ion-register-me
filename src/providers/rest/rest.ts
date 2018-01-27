@@ -13,8 +13,9 @@ import { Business } from './../../models/business.model';
 */
 @Injectable()
 export class RestProvider {
-  // baseUrl: any = 'https://sikafone-cedmbxfyuc.now.sh';
-  baseUrl: any = 'https://sikafone-itcqertdiu.now.sh';
+  // baseUrl-1: any = 'https://sikafone-cedmbxfyuc.now.sh';
+  // baseUrl: any = 'https://sikafone-itcqertdiu.now.sh';
+  baseUrl: any = 'http://localhost:9000';
 
   result: any;
   constructor(public http: HttpClient, public storage: Storage) {
@@ -84,6 +85,16 @@ export class RestProvider {
           reject(err);
         });
     });
+  }
+
+  generateFindMeId() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  
+    for (var i = 0; i < 8; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    var id = text;
+    return id;
   }
 
 }

@@ -20,7 +20,9 @@ import { UserResponse } from './../../models/token.model';
 export class AuthProvider {
   result: any;
   // baseUrl: any = 'https://sikafone-cedmbxfyuc.now.sh';
-  baseUrl: any = 'https://sikafone-itcqertdiu.now.sh';
+  // baseUrl: any = 'https://sikafone-itcqertdiu.now.sh';
+  baseUrl: any = 'http://localhost:9000';
+
   public token: any;
   userId: string;
   credentials = {} as User;

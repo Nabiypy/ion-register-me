@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { RestProvider } from '../../providers/rest/rest';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
 /**
  * Generated class for the DirectoryPage page.
@@ -10,6 +11,7 @@ import { RestProvider } from '../../providers/rest/rest';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
 
 @IonicPage()
 @Component({
@@ -19,18 +21,23 @@ import { RestProvider } from '../../providers/rest/rest';
 export class DirectoryPage {
   directories: any;
   isLoading: any;
+  allBusiness: any;
+  isToast: any;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private restProvider: RestProvider,
     public loadingCtrl: LoadingController,
-    public storage: Storage) {
+    public storage: Storage,
+    private sqlite: SQLite,
+    private toastCtrl: ToastController) {
+      // this.createUserTable();
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DirectoryPage');
     this.showLoader();
-
     this.restProvider.getLocalDirectories().then(data =>{
       this.isLoading.dismiss();
       this.directories = data['items'];
@@ -38,7 +45,6 @@ export class DirectoryPage {
     },(err) => {
       console.log("error occured ~ ", err);
     })
-
     // this.restProvider.getDirectories().then((data) => {
     //   this.isLoading.dismiss();
     //   this.directories = data;
@@ -46,10 +52,9 @@ export class DirectoryPage {
     // }, (err) => {
     //   console.log("an error occured from getDirectories");
     // });
-    
-
   }
 
+  
   selectedPost(post){
     console.log('selected directory', post);
     if(post.name == 'Electrician'){
@@ -88,11 +93,48 @@ export class DirectoryPage {
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Herbal Center'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Computer Engineer'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Banker'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Administrator'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Counselor'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Journalist'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Sikafone Agent'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Other Mobile Money'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Lawyer'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Doctor'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Nurse'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Teacher'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Tertiary'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'High schools'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Junior High schools'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Training Institutions'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Vocational'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Technical'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }
 
+    
 
   }
-
+  // Create basic user bio data table
+ 
+  
   toggleSection(i) {
     this.directories[i].open = !this.directories[i].open;
   }
@@ -110,5 +152,15 @@ export class DirectoryPage {
     this.isLoading.present();
 
   }
+
+  presentToast(msg) {
+    this.isToast = this.toastCtrl.create({
+    message: msg,
+    duration: 4000,
+    position: 'middle'
+  });
+
+  this.isToast.present();
+}
 
 }

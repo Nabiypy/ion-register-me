@@ -6,7 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+
+
 import { File } from '@ionic-native/file';
+import { SQLite } from '@ionic-native/sqlite';
+import { Toast } from '@ionic-native/toast';
+import { Transfer } from '@ionic-native/transfer';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -20,6 +26,7 @@ import { RestProvider } from '../providers/rest/rest';
 import { LoginPage } from '../pages/login/login';
 import { IonicStorageModule } from '@ionic/storage';
 import { SignupPage } from '../pages/signup/signup';
+import { FilePath } from '@ionic-native/file-path';
 
 @NgModule({
   declarations: [
@@ -53,8 +60,13 @@ import { SignupPage } from '../pages/signup/signup';
     Geolocation,
     Camera,
     FileTransfer,
+    FilePath,
     FileTransferObject,
     File,
+    Transfer,
+    SQLite,
+    Toast,
+    NativeGeocoder
   ]
 })
 export class AppModule { }

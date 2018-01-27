@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="hcolor">
+    <ion-title>Offline Service</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <h2>Register business</h2>
+  <form (ngSubmit)="saveData()">
+      <ion-item>
+          <ion-label>Type</ion-label>
+          <ion-select [(ngModel)]="data.type" name="type" required="">
+            <ion-option value="professional">Professional</ion-option>
+            <ion-option value="plumber">Plumber</ion-option>
+            <ion-option value="food">Food Vendor</ion-option>
+          </ion-select>
+        </ion-item>
+        
+      <ion-item>
+          <ion-label>Shop Owner</ion-label>
+          <ion-input type="text" placeholder="Name" [(ngModel)]="data.description" name="description" required="" ></ion-input>
+        </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <!-- <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="data.date" name="date" required=""></ion-datetime> -->
+      <ion-input type="text" placeholder="findMeId" [(ngModel)]="data.date" name="date" required="" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Mobile</ion-label>
+      <ion-input type="number" placeholder="mobile" [(ngModel)]="data.amount" name="amount" required="" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button round color="primary" (click)="takePicture()" full>
+        <ion-icon name="md-camera"></ion-icon>
+      </button>
+    </ion-item>
+    <button ion-button type="submit" block>Save Data</button>
+  </form>
+</ion-content>

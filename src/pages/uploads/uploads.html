@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="hcolor">
+    <ion-title>
+      Offline Register
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addData()">
+        <ion-icon name="add-circle"></ion-icon>
+        New 
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Pending List</h3>
+  <ion-list>
+    <ion-item-sliding *ngFor="let expense of expenses; let i=index">
+      <ion-item nopadding>
+        <p>
+          <span>{{expense.date}}</span><br>
+          Directory: {{expense.type}}<br>
+          {{expense.description}}
+        </p>
+        <h3 item-end>
+          mobile: 0{{expense.amount}}
+        </h3>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="editData(expense.rowid)">
+          <ion-icon name="paper"></ion-icon>
+        </button>
+        <button ion-button color="danger" (click)="deleteData(expense.rowid)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Location:</ion-title>
+  </ion-toolbar>
+</ion-footer>

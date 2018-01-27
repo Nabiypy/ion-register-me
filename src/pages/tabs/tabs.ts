@@ -16,8 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class TabsPage {
 
   tab1: string = "DirectoryPage";
-  tab2: string = "SettingsPage";
-
+  tab2: string = "UploadsPage";
+  tab3: string = "SettingsPage";
   constructor() {
   }
 
