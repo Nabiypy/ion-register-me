@@ -9,17 +9,21 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding *ngIf="electricianForm">
+<ion-content padding *ngIf="electricianForm"> 
   <!-- <h2>Add Merchant</h2> -->
   <ion-row>
     <ion-col>
       <ion-list inset>
         <ion-item>
+          <ion-label>FindMeId</ion-label>
+          <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-input type="text" 
-                      placeholder="Shop Name" 
-                      name="officeName"  
-                      [(ngModel)]="formValues.officeName" >
-                  </ion-input>
+              placeholder="Shop Name" 
+              name="officeName"  
+              [(ngModel)]="formValues.officeName" >
+          </ion-input>
         </ion-item>
         <ion-item>
           <ion-input type="text" 
@@ -76,12 +80,16 @@
   <ion-row>
     <ion-col>
       <ion-list inset>
+          <ion-item>
+              <ion-label>FindMeId</ion-label>
+              <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+            </ion-item>
         <ion-item>
           <ion-input placeholder="Company Name" 
-                     name="officeName" 
-                     type="text" required 
-                     [(ngModel)]="formValues.officeName">
-                    </ion-input>
+          name="officeName" 
+          type="text" required 
+          [(ngModel)]="formValues.officeName">
+        </ion-input>
         </ion-item>
         <ion-item>
           <ion-input placeholder="Worker Name" 
@@ -135,6 +143,10 @@
   <ion-row>
     <ion-col>
       <ion-list inset>
+          <ion-item>
+              <ion-label>FindMeId</ion-label>
+              <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+            </ion-item>
         <ion-item>
           <ion-input placeholder={{selectedName}} 
                      name="officeName" 
@@ -193,6 +205,10 @@
   <ion-row>
     <ion-col>
       <ion-list inset>
+          <ion-item>
+              <ion-label>FindMeId</ion-label>
+              <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+            </ion-item>
         <ion-item>
           <ion-input placeholder={{selectedName}} 
                      name="officeName" 
@@ -254,12 +270,15 @@
   </ion-row>
 </ion-content>
 
-
 <ion-content padding *ngIf="schoolsForm">
   <span *ngIf="currentLocation">{{ currentLocation }}</span>  
   <ion-row>
     <ion-col>
       <ion-list inset>
+          <ion-item>
+              <ion-label>FindMeId</ion-label>
+              <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+            </ion-item>
         <ion-item>
           <ion-input placeholder="School Name" 
                      name="officeName" 
@@ -327,6 +346,10 @@
   <ion-row>
     <ion-col>
       <ion-list inset>
+          <ion-item>
+              <ion-label>FindMeId</ion-label>
+              <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+            </ion-item>
         <ion-item>
           <ion-input placeholder="Shop Name" 
                      name="officeName" 
@@ -387,6 +410,10 @@
   <ion-row>
     <ion-col>
       <ion-list inset>
+          <ion-item>
+              <ion-label>FindMeId</ion-label>
+              <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+            </ion-item>
         <ion-item>
           <ion-input placeholder="Shop Name" 
                      name="officeName" 
@@ -447,6 +474,10 @@
   <ion-row>
     <ion-col>
       <ion-list inset>
+          <ion-item>
+              <ion-label>FindMeId</ion-label>
+              <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+            </ion-item>
         <ion-item>
           <ion-input placeholder={{selectedName}} 
                       name="officeName" 
@@ -513,6 +544,10 @@
   <ion-row>
       <ion-col>
         <ion-list inset>
+            <ion-item>
+                <ion-label>FindMeId</ion-label>
+                <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+              </ion-item>
           <ion-item>
             <ion-input placeholder="Busines Name" 
                         name="officeName" 
@@ -577,7 +612,10 @@
 <ion-content padding *ngIf="momoForm">
   <!-- <h2>Add Merchant</h2> -->
   <span *ngIf="currentLocation" >{{ currentLocation }}</span>  
-
+  <ion-item>
+      <ion-label>FindMeId</ion-label>
+      <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+    </ion-item>
   <ion-item>
     <ion-input type="text" 
                 placeholder={{selectedName}} 

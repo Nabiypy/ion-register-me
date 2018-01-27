@@ -26,6 +26,20 @@
                     "information": "The practice of applying paint, pigment, color to a solid surface. ",
                     "price": "19 ",
                     "group": "Artisans"
+                },
+                {
+                    "name": "Merchanic",
+                    "information": "A mechanic is a tradesman, craftsman, or technician who uses tools to build or repair machinery. ",
+                    "price": "19 ",
+                    "group": "Artisans",
+                    "icon":""
+                },
+                {
+                    "name": "Welder",
+                    "information": "A welder or lit operator is a tradesperson who specializes in fusing materials together.",
+                    "price": "19 ",
+                    "group": "Artisans",
+                    "icon":""
                 }
             ]
         },

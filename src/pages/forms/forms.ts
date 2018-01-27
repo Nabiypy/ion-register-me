@@ -119,7 +119,12 @@ export class FormsPage {
     }else if (this.selectedName == "Painter") {
       this.merchanicsForm = true;
       console.log('selected Painter form', this.merchanicsForm);
-
+    }else if (this.selectedName == "Merchanic") {
+      this.merchanicsForm = true;
+      console.log('selected Merchanic form', this.merchanicsForm);
+    }else if (this.selectedName == "Welder") {
+      this.merchanicsForm = true;
+      console.log('selected Welder form', this.merchanicsForm);
     }else if (this.selectedName == "Farmer") {
       this.farmerForm = true;
       console.log('selected main farm form', this.farmerForm);
@@ -213,7 +218,7 @@ export class FormsPage {
       location: 'default'
     }).then((db: SQLiteObject) => {
       console.log('data.db created!!! ');
-      this.presentToast('data.db created!!! ');
+      // this.presentToast('data.db created!!! ');
       this.db = db;
       this.createDBTables();
       }).catch(e => console.log(JSON.stringify(e)));
@@ -224,7 +229,7 @@ export class FormsPage {
     this.db.executeSql('CREATE TABLE IF NOT EXISTS `business`( `id` INTEGER PRIMARY KEY,`userId` TEXT,`findMeId` TEXT,`officeName` TEXT,`otherNames` TEXT,`directory` TEXT,`group` TEXT,`mobile` TEXT,`email` TEXT,`gender` TEXT,`location` TEXT,`latitude` TEXT,`longitude` TEXT,`landSize` TEXT,`websiteUrl` TEXT,`fileUpload` TEXT,`timeDate` DATE,`dob` DATE,`otherInfo` TEXT,`gravatar` TEXT,`uploaded` BOOLEAN)', {}) 
     .then(()=>{
       console.log('Table business is created >>>>');
-      this.presentToast('Table business is created >>>>');
+      // this.presentToast('Table business is created >>>>');
 
     }).catch(e => {  this.presentToast('error creating table  business >>'+e); console.log(JSON.stringify(e))});
   }

@@ -65,7 +65,9 @@ export class DirectoryPage {
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Painter'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
-    }else if( post.name == 'Merchanics '){
+    }else if( post.name == 'Merchanic'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Welder'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Shops'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});

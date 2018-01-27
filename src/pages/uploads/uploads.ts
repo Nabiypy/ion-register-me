@@ -37,20 +37,35 @@ export class UploadsPage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              private sqlite: SQLite) {
-                this.latitude = "5.6500";
-                this.longitude = "-0.1833";
+              private sqlite: SQLite,
+              private geolocation: Geolocation) {
+                this.latitude = "";
+                this.longitude = "";
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UploadsPage');
     this.getData();
+    this.setGeoLocation();
   }
   
   ionViewWillEnter() {
     this.getData();
   }
-  
+  setGeoLocation() {
+    this.geolocation.getCurrentPosition({
+      enableHighAccuracy: true,
+      timeout: 30000,
+      maximumAge: 30000
+    }).then((resp) => {
+      this.longitude = resp.coords.longitude;
+      this.latitude = resp.coords.latitude;
+      console.log('position resp >> ', resp.coords);
+    }).catch((error) => {
+      // this.error = error;
+      console.log('error: true',JSON.stringify(error));
+    });
+  }
   getData() {
     this.sqlite.create({
       name: 'ionicdb.db',

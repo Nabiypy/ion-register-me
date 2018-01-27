@@ -7,6 +7,8 @@ import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 @IonicPage()
 @Component({
@@ -21,6 +23,8 @@ export class AddDataPage {
   imageUrl:string='null';
   // data = { userId:"", findMeId:"", type:"", officeName:"", mobile:"", latitude:"", longitude:"", gravatar:"", otherInfor:""};
   data = { date:"", type:"", description:"", amount:0 };
+  latitude: any='';
+  longitude: any="";
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -33,15 +37,29 @@ export class AddDataPage {
     private filePath: FilePath, 
     public actionSheetCtrl: ActionSheetController, 
     public toastCtrl: ToastController, 
-    public platform: Platform) {
-      
-      // this.data.latitude = '5.6500';
-      // this.data.longitude ='-0.1833' 
+    public platform: Platform,
+    private geolocation: Geolocation) {
     }
+    
     ionViewDidLoad(){
       this.data.date= this.restProvider.generateFindMeId();
-    }
+      this.setGeoLocation()
 
+    }
+    setGeoLocation() {
+      this.geolocation.getCurrentPosition({
+        enableHighAccuracy: true,
+        timeout: 30000,
+        maximumAge: 30000
+      }).then((resp) => {
+        this.longitude = resp.coords.longitude;
+        this.latitude = resp.coords.latitude;
+        console.log('position resp >> ', resp.coords);
+      }).catch((error) => {
+        // this.error = error;
+        console.log('error: true',JSON.stringify(error));
+      });
+    }
     public presentActionSheet() {
       let actionSheet = this.actionSheetCtrl.create({
         title: 'Select Image Source',

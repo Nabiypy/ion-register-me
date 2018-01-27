@@ -15,19 +15,23 @@
       <ion-input type="text" placeholder="FindMeId" [(ngModel)]="data.date" name="date" required="" ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Type</ion-label>
+      <ion-label>Directory</ion-label>
       <ion-select [(ngModel)]="data.type" name="type" required="">
-        <ion-option value="professional">Professional</ion-option>
-        <ion-option value="plumber">Plumber</ion-option>
-        <ion-option value="food">Food Vendor</ion-option>
+        <ion-option value="Sikafone">Sikafone Agent</ion-option>
+        <ion-option value="Merchanic">Merchanic</ion-option>
+        <ion-option value="Food">Food Vendor</ion-option>
+        <ion-option value="Professional">Professional</ion-option>
+        <ion-option value="Plumber">Plumber</ion-option>
+        <ion-option value="Electrician">Electrician</ion-option>
+        <ion-option value="Momo">Momo Agent</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Description</ion-label>
+      <ion-label>Name</ion-label>
       <ion-input type="text" placeholder="Description" [(ngModel)]="data.description" name="description" required="" ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Amount</ion-label>
+      <ion-label>Phone </ion-label>
       <ion-input type="number" placeholder="Amount" [(ngModel)]="data.amount" name="amount" required="" ></ion-input>
     </ion-item>
     <ion-input type="hidden" [(ngModel)]="data.rowid" name="rowid"></ion-input>
