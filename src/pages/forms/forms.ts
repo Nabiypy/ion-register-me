@@ -105,7 +105,8 @@ export class FormsPage {
       console.log('@forms username >>>', userId);
       this.userId = userId;
       this.formValues.userId = userId;
-      this.formValues.findMeId = this.restProvider.generateFindMeId()
+      this.formValues.findMeId = this.restProvider.generateFindMeId();
+      // this.formValues.findMeId = "FNDM2018"
     });
     if (this.selectedName == 'Electrician') {
       this.electricianForm = true;
@@ -137,12 +138,27 @@ export class FormsPage {
     }else if (this.selectedName == "Fisherman") {
       this.farmersForm = true;
       console.log('selected fisherman form', this.farmersForm);
+    }else if (this.selectedName == "Fruit Vendor") {
+      this.farmersForm = true;
+      console.log('selected Fruit Vendor form', this.farmersForm);
+    }else if (this.selectedName == "Petty Food Joints") {
+      this.farmersForm = true;
+      console.log('selected Petty Food Joints form', this.farmersForm);
+    }else if (this.selectedName == "Poultry Breeder") {
+      this.farmersForm = true;
+      console.log('selected Poultry Breeder form', this.farmersForm);
     }else if (this.selectedName == "Police Station") {
       this.servicesForm = true;
       console.log('selected police form', this.servicesForm);
     }else if (this.selectedName == "Fire Service") {
       this.servicesForm = true;
       console.log('selected Fire service form', this.servicesForm);
+    }else if (this.selectedName == "Ambulance Service") {
+      this.servicesForm = true;
+      console.log('selected Ambulance Service form', this.servicesForm);
+    }else if (this.selectedName == "Security Guards") {
+      this.servicesForm = true;
+      console.log('selectedSecurity Guards form', this.servicesForm);
     }else if (this.selectedName == "Hospital") {
       this.servicesForm = true;
       console.log('selected dealers form', this.servicesForm);
@@ -203,7 +219,80 @@ export class FormsPage {
     }else if (this.selectedName == "Technical") {
       this.schoolsForm = true;
       console.log('selected Technical form', this.schoolsForm);
+    }else if (this.selectedName == "Police Station") {
+      this.servicesForm = true;
+      console.log('selected police form', this.servicesForm);
+    }else if (this.selectedName == "Fire Service") {
+      this.servicesForm = true;
+      console.log('selected Fire service form', this.servicesForm);
+    }else if (this.selectedName == "Fashion Designer") {
+      this.servicesForm = true;
+      console.log('selected Fashion Designer form', this.servicesForm);
+    }else if (this.selectedName == "Barber") {
+      this.merchanicsForm = true;
+      console.log('selected Barber form', this.merchanicsForm);
+    }else if (this.selectedName == "Cooks") {
+      this.servicesForm = true;
+      console.log('selected cooks form', this.servicesForm);
+    }else if (this.selectedName == "General Deliveries") {
+      this.servicesForm = true;
+      console.log('selected General deliveries form', this.servicesForm);
+    }else if (this.selectedName == "Cleaners") {
+      this.merchanicsForm = true;
+      console.log('selected Banker form', this.merchanicsForm);
+    }else if (this.selectedName == "Gardeners") {
+      this.merchanicsForm = true;
+      console.log('selected Gardeners form', this.merchanicsForm);
+    }else if (this.selectedName == "Makeup Artist") {
+      this.merchanicsForm = true;
+      console.log('selected Makeup Artist form', this.merchanicsForm);
+    }else if (this.selectedName == "Seamstress") {
+      this.merchanicsForm = true;
+      console.log('selected Seamstress form', this.merchanicsForm);
+    }else if (this.selectedName == "Information Centers") {
+      this.merchanicsForm = true;
+      console.log('selected Information Centers form', this.merchanicsForm);
+    }else if (this.selectedName == "Photographer") {
+      this.servicesForm = true;
+      console.log('selected Photographer form', this.servicesForm);
+    }else if (this.selectedName == "Decor") {
+      this.servicesForm = true;
+      console.log('selected Decor form', this.servicesForm);
+    }else if (this.selectedName == "Internet Cafe") {
+      this.servicesForm = true;
+      console.log('selected Internet Cafe form', this.servicesForm);
+    }else if (this.selectedName == "Petty Traders") {
+      this.shopsForm = true;
+      console.log('selected Petty Traders form', this.shopsForm);
+    }else if (this.selectedName == "Spare Parts Dealer") {
+      this.shopsForm = true;
+      console.log('selected Spare Parts Dealer form', this.shopsForm);
+    }else if (this.selectedName == "Supermarkets") {
+      this.shopsForm = true;
+      console.log('selected Supermarkets form', this.shopsForm);
+    }else if (this.selectedName == "Canopy and Chair Rentals") {
+      this.shopsForm = true;
+      console.log('selected Canopy and Chair Rentals form', this.shopsForm);
+    }else if (this.selectedName == "Laundry") {
+      this.shopsForm = true;
+      console.log('selected Laundry form', this.shopsForm);
+    }else if (this.selectedName == "Building Materials") {
+      this.shopsForm = true;
+      console.log('selected building materials  form', this.shopsForm);
+    }else if (this.selectedName == "Salons") {
+      this.shopsForm = true;
+      console.log('selected Salons form', this.shopsForm);
+    }else if (this.selectedName == "Boutiques") {
+      this.shopsForm = true;
+      console.log('selected Boutiques form', this.shopsForm);
+    }else if (this.selectedName == "Cosmetics Shop") {
+      this.shopsForm = true;
+      console.log('selected Cosmetics Shop form', this.shopsForm);
+    }else if (this.selectedName == "Agro-chemical Shop") {
+      this.shopsForm = true;
+      console.log('selected Agro-chemical Shop form', this.shopsForm);
     }
+    
     
     this.setGeoLocation();
   }
@@ -268,7 +357,7 @@ export class FormsPage {
      // If it's base64:
       this.base64Image = 'data:image/jpeg;base64,' + imageData;
       this.imageURI = imageData;
-      // this.formValues.fileUpload = this.base64Image;
+      this.formValues.fileUpload = this.base64Image;
       this.photos = this.base64Image;
       this.photos.reverse();
     }, (err) => {
@@ -288,23 +377,6 @@ export class FormsPage {
       this.navCtrl.push('TabsPage');
     }
   }
-  
-  // addBusiness2() {
-  //   this.showLoader();
-  //   console.log('formvalues to save offline >>> ', this.formValues);
-  //   this.db.executeSql('INSERT INTO `business` ( userId, findMeId, officeName, otherNames,directory,group,mobile,email,ender,location,latitude,longitude,farmSize,websiteUrl,fileUpload,timeDate,dob,otherInfo,gravatar) VALUES(\''+this.formValues.userId+ '\','+this.formValues.findMeId +', \''+this.formValues.directory+'\','+this.formValues.group+', \''+this.formValues.officeName+'\','+this.formValues.otherNames+',\''+this.formValues.latitude+'\','+this.formValues.longitude+',\''+this.formValues.mobile+'\','+this.formValues.gender+',\''+this.formValues.otherInfo+'\','+this.formValues.landSize+',\''+this.formValues.gravatar+'\',last_insert_rowid())', {})
-  //     .then(()=>{
-  //       console.log('business inserted in db..');
-  //       this.presentToast('business inserted in db..') 
-  //       this.isLoading.dismiss();
-
-  //     }).catch(e => { 
-  //        this.presentToast('error creating table  business >>'+JSON.stringify(e)); 
-  //        console.log(JSON.stringify(e))
-  //        this.isLoading.dismiss();
-
-  //       });
-  // }
 
   getData() {
     this.sqlite.create({
@@ -340,75 +412,11 @@ export class FormsPage {
     }).catch(e => console.log(e));
   }
 
-  // addBusiness1() {
-  //   this.sqlite.create({
-  //     name: 'registerdb.db',
-  //     location: 'default'
-  //   }).then((db: SQLiteObject) => {
-  //     db.executeSql('INSERT INTO egal VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)',[
-  //       this.formValues.userId,
-  //       this.formValues.findMeId,
-  //        this.formValues.directory,
-  //        this.formValues.group,
-  //       this.formValues.officeName,
-  //       this.formValues.otherNames,
-  //       this.formValues.latitude,
-  //        this.formValues.longitude,
-  //        this.formValues.mobile,
-  //        this.formValues.gender,
-  //        this.formValues.email,
-  //       this.formValues.landSize,
-  //       this.formValues.otherInfo
-  //     ])
-  //       .then(res => {
-  //         console.log(res);
-  //         this.toast.show('Data saved', '5000', 'center').subscribe(
-  //           toast => {
-  //             this.navCtrl.popToRoot();
-  //           }
-  //         );
-  //       })
-  //       .catch(e => {
-  //         console.log(e);
-  //         this.toast.show(e, '5000', 'center').subscribe(
-  //           toast => {
-  //             console.log(toast);
-  //           }
-  //         );
-  //       });
-  //   }).catch(e => {
-  //     console.log(e);
-  //     this.toast.show(e, '5000', 'center').subscribe(
-  //       toast => {
-  //         console.log(toast);
-  //       }
-  //     );
-  //   });
-  // }
-
   addData() {
     this.navCtrl.push("AddDataPage");
   }
   
-  // editData(rowid) {
-  //   this.navCtrl.push("EditDataPage", {
-  //     rowid:rowid
-  //   });
-  // }
-  
-  // deleteData(rowid) {
-  //   this.sqlite.create({
-  //     name: 'ionicdb.db',
-  //     location: 'default'
-  //   }).then((db: SQLiteObject) => {
-  //     db.executeSql('DELETE FROM expense WHERE rowid=?', [rowid])
-  //     .then(res => {
-  //       console.log(res);
-  //       this.getData();
-  //     })
-  //     .catch(e => console.log(e));
-  //   }).catch(e => console.log(e));
-  // }
+ 
 
   addBusiness() {
     this.showLoader();
@@ -440,16 +448,6 @@ export class FormsPage {
     this.isLoading.present();
   }
 
-  // presentToast() {
-  //     this.isToast = this.toastCtrl.create({
-  //     message: 'Business successfully created',
-  //     duration: 4000,
-  //     position: 'middle'
-  //   });
-  
-  //   this.isToast.present();
-  // }
-  
 
   presentToast(msg) {
     this.isToast = this.toastCtrl.create({

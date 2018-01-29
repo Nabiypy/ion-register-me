@@ -13,8 +13,7 @@ import { Business } from './../../models/business.model';
 */
 @Injectable()
 export class RestProvider {
-  // baseUrl-1: any = 'https://sikafone-cedmbxfyuc.now.sh';
-  // baseUrl: any = 'https://sikafone-itcqertdiu.now.sh';
+  // baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
   baseUrl: any = 'http://localhost:9000';
 
   result: any;
@@ -35,6 +34,19 @@ export class RestProvider {
     });
   }
   
+  getLocalDirectories() {
+    return new Promise((resolve, reject) => {
+      this.http.get('./assets/directory.modal.json')
+        .map(res => this.result = res)
+        .subscribe(data => {
+          this.storage.set('data',data);
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   createDirectory(post: Directory) {
     return new Promise((resolve, reject) => {
       this.http.post(this.baseUrl + '/api/directory', JSON.stringify(post))
@@ -49,7 +61,7 @@ export class RestProvider {
 
   RemoveDirectory(id) {
     return new Promise((resolve, reject) => {
-      this.http.delete(this.baseUrl + '/directory/remove/' + id).subscribe((res) => {
+      this.http.delete(this.baseUrl + '/api/directory/remove/' + id).subscribe((res) => {
         resolve(res);
       }, (err) => {
         reject(err);
@@ -72,21 +84,45 @@ export class RestProvider {
         });
     });
   }
-  
 
-  getLocalDirectories() {
+  getBusinessess() {
     return new Promise((resolve, reject) => {
-      this.http.get('./assets/directory.modal.json')
+      this.http.get(this.baseUrl + '/api/businessess')
         .map(res => this.result = res)
         .subscribe(data => {
-          this.storage.set('data',data);
           resolve(data);
         }, (err) => {
           reject(err);
         });
     });
   }
+  
+  updateBusiness(post: Business) {
+    console.log('@rest.ts Business credentials >>', post);
+    return new Promise((resolve, reject) => {
+      this.http.put(this.baseUrl + '/api/business/update/'+post.id,{
+        headers: new HttpHeaders({'Content-type':'application/json'})    
+       })
+        .map(res => this.result = res)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 
+  removeBusiness(id) {
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.baseUrl + '/directory/remove/' + id).subscribe((res) => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+
+    });
+  }
+  
   generateFindMeId() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -96,6 +132,7 @@ export class RestProvider {
     var id = text;
     return id;
   }
+  
 
 }
 

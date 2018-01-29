@@ -410,19 +410,19 @@
   <ion-row>
     <ion-col>
       <ion-list inset>
-          <ion-item>
-              <ion-label>FindMeId</ion-label>
-              <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
-            </ion-item>
         <ion-item>
+          <ion-label>FindMeId</ion-label>
+          <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+        </ion-item>
+        <!-- <ion-item>
           <ion-input placeholder="Shop Name" 
                      name="officeName" 
                      type="text" required 
                      [(ngModel)]="formValues.officeName">
                     </ion-input>
-        </ion-item>
+        </ion-item> -->
         <ion-item>
-          <ion-input placeholder="Owner" 
+          <ion-input placeholder="Trader Name"
                      name="otherNames" 
                      type="text" required 
                      [(ngModel)]="formValues.otherNames">
@@ -449,6 +449,13 @@
                      type="email" 
                      [(ngModel)]="formValues.email">
                     </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea placeholder="Items" 
+                     name="otherInfo" 
+                     type="text" 
+                     [(ngModel)]="formValues.otherInfo">
+          </ion-textarea>
         </ion-item>
         <ion-item>
           <button ion-button round color="primary" (click)="takePicture()" full>

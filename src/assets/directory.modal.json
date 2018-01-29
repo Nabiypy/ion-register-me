@@ -40,7 +40,29 @@
                     "price": "19 ",
                     "group": "Artisans",
                     "icon":""
+                },
+                {
+                    "name": "Coffin Makers",
+                    "information": "People who makes coffins in unique shapes and styles. Coke bottles, cars etc.",
+                    "price": "19 ",
+                    "group": "Artisans",
+                    "icon":""
+                },
+                {
+                    "name": "Shoemaker(cobbler)",
+                    "information": "A person who make and mends shoes..",
+                    "price": "19 ",
+                    "group": "Artisans",
+                    "icon":""
+                },
+                {
+                    "name": "Mason",
+                    "information": "a person whose trade is building with units of various natural or artificial mineral products, as stones",
+                    "price": "19 ",
+                    "group": "Artisans",
+                    "icon":""
                 }
+                
             ]
         },
         {
@@ -57,7 +79,7 @@
                     "name": "Other Mobile Money",
                     "information": "A certified agents to ensure customers have a good experience with Mobile Money Services",
                     "price": "19 ",
-                    "group": "Artisans",
+                    "group": "Mobile Money Service",
                     "icon": ""
                 }
             ]
@@ -88,6 +110,24 @@
                     "information": "A person who catches fish for a living or for sport.",
                     "price": "19 ",
                     "group": "Food And Agriculture"
+                },
+                {
+                    "name": "Fruit Vendor",
+                    "information": "Sell primarily open-air business venue that sells seasonal fruit and many fruit products from local growers",
+                    "price": "19 ",
+                    "group": "Food And Agriculture"
+                },
+                {
+                    "name": "Petty Food Joints",
+                    "information": "Street food is ready-to-eat food or drink sold by a hawker",
+                    "price": "19 ",
+                    "group": "Food And Agriculture"
+                },
+                {
+                    "name": "Poultry Breeder",
+                    "information": "The breeder farm produces fertile eggs that will be hatched in a hatchery.",
+                    "price": "19 ",
+                    "group": "Food And Agriculture"
                 }
             ]
         },
@@ -108,10 +148,181 @@
                     "price": "19",
                     "group": "Security Service",
                     "icon":""
+                },
+                {
+                    "name": "Ambulance Service",
+                    "information": " police officers and other members of staff.",
+                    "price": "25",
+                    "group": "Security Service",
+                    "icon":""
+                },
+                {
+                    "name": "Security Guards",
+                    "information": "Rescue service agency under ministry of interior",
+                    "price": "19",
+                    "group": "Security Service",
+                    "icon":""
+                },
+                {
+                    "name": "Immigration",
+                    "information": "Rescue service agency under ministry of interior",
+                    "price": "19",
+                    "group": "Security Service",
+                    "icon":""
                 }
             ]
         },
+        {
+            "name": "Human Service",
+            "children": [
+                {
+                    "name": "Cooks",
+                    "information": "A cook is a person who prepares food for consumption. A cook is sometimes referred to as a chef.",
+                    "price": "25",
+                    "group": "Human Service",
+                    "icon":""
+                },
+                {
+                    "name": "General Deliveries",
+                    "information": "People carrying and turning over of letters, goods, etc., to a designated recipient or recipients",
+                    "price": "19 ",
+                    "group": "Human Service",
+                    "icon":""
+                },
+                {
+                    "name": "Fashion Designer",
+                    "information": "A skilled trade in performing cutting, shaping and installation",
+                    "price": "19 ",
+                    "group": "Human Service",
+                    "icon":""
+                },
+                {
+                    "name": "Hairdressers",
+                    "information": "The practice of applying paint, pigment, color to a solid surface. ",
+                    "price": "19 ",
+                    "group": "Human Service",
+                    "icon":""
+                },
+                {
+                    "name": "Barber",
+                    "information": "A mechanic is a tradesman, craftsman, or technician who uses tools to build or repair machinery. ",
+                    "price": "19 ",
+                    "group": "Human Service",
+                    "icon":""
+                },
+                {
+                    "name": "Cleaners",
+                    "information": "A welder or lit operator is a tradesperson who specializes in fusing materials together.",
+                    "price": "19 ",
+                    "group": "Human Service",
+                    "icon":""
+                },
+                {
+                    "name": "Gardeners",
+                    "information": "People responsible for gardening from residential garden and the homes",
+                    "price": "19 ",
+                    "group": "Human Service",
+                    "icon":""
+                },
+                {
+                    "name": "Makeup Artist",
+                    "information": "A make-up artist is an artist whose medium is the human body, applying makeup and prosthetics for theatrical, television",
+                    "price": "19 ",
+                    "group": "Human Service",
+                    "icon":""
+                },
+                {
+                    "name": "Seamstress",
+                    "information": "a woman who sews, especially one who earns her living by sewing.",
+                    "price": "19 ",
+                    "group": "Human Service",
+                    "icon":""
+                },
+                {
+                    "name": "Tailor",
+                    "information": "A man who sews, especially one who earns her living by sewing.",
+                    "price": "19 ",
+                    "group": "Human Service",
+                    "icon":""
+                }
+            ]
+        },
+        {
+            "name": "Merchants and Traders",
+            "children": [
+                {
+                    "name": "Petty Traders",
+                    "information": "Traders conducting on a small scale, sale of small inexpensive items.",
+                    "price": "25",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                },
+                {
+                    "name": "Spare Parts Dealer",
+                    "information": "Sell and buy all kinds of heavy duty or light car spare parts",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                },
+                {
+                    "name": "Supermarkets",
+                    "information": "Is self-service shop offering a wide variety of food and household products, organized into aisles.",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                },
+                {
+                    "name": "Canopy and Chair Rentals",
+                    "information": "Canopies, Chairs & All Kinds, tent, chairs, tables, cutlery set and many other rental services ",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                },
+                {
+                    "name": "Laundry",
+                    "information": "A Shop for washing cloths and other textiles",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                },
+                {
+                    "name": "Building Materials",
+                    "information": "Shop selling materials for building construction.",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                },
+                {
+                    "name": "Salons",
+                    "information": "Is an establishment dealing with cosmetic treatments for men and women. ",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                },
+                {
+                    "name": "Boutiques",
+                    "information": "A small store that sells stylish clothing, jewelry, or other usually luxury goods",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                },
+                {
+                    "name": "Cosmetics Shop",
+                    "information": "Shop for affordable, high quality cosmetics both online and land.",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                },
+                {
+                    "name": "Agro-chemical Shop",
+                    "information": "Shopping chemicals for farm land farm products",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
+                }
 
+            ]
+        },
         {
             "name": "Health",
             "children": [
@@ -276,54 +487,95 @@
             "name": "Creative Arts",
             "children": [
                 {
-                    "name": "Entertainment",
-                    "children": [
-                        {
-                            "name": "Photographer",
-                            "information": "",
-                            "price": "10"
-                        },
-                        {
-                            "name": "Graphic Designer",
-                            "information": "",
-                            "price": "12"
-                        },
-                        {
-                            "name": "Media Houses",
-                            "information": "",
-                            "price": "12"
-                        },
-                        {
-                            "name": "Decor",
-                            "information": "",
-                            "price": "12"
-                        }
-                    ]
+                    "name": "Photographer",
+                    "information": "A photographer is a person who makes photographs",
+                    "price": "10",
+                    "group":"Creative Arts",
+                    "icon":""
+                },
+
+                {
+                    "name": "Decor",
+                    "information": "People who are responsible for the furnishing and decoration of a room and ceremonies.",
+                    "price": "12",
+                    "group":"Creative Arts",
+                    "icon":""
                 },
                 {
-                    "name": "Information Service",
-                    "children": [
-                        {
-                            "name": "Internet Cafe",
-                            "information": "",
-                            "price": "13"
-                        },
-                        {
-                            "name": "Newsstands",
-                            "information": "",
-                            "price": "14"
-                        },
-                        {
-                            "name": "Information Centers",
-                            "information": "",
-                            "price": "11"
-                        },
-                        {
-                            "name": "Printing Press",
-                            "information": "",
-                            "price": "14"
-                        }
-                    ]
+                    "name": "Internet Cafe",
+                    "information": "A place for internet access and informaton enquiry",
+                    "price": "13",
+                    "group":"Creative Arts",
+                    "icon":""
+                },
+                {
+                    "name": "Newsstands",
+                    "information": "a stand or stall for the sale of newspapers.",
+                    "price": "14",
+                    "group":"Creative Arts",
+                    "icon":""
+                },
+                {
+                    "name": "Information Centers",
+                    "information": "An center designed specifically for storing, processing, and retrieving information for dissemination at regular intervals",
+                    "price": "11",
+                    "group":"Creative Arts",
+                    "icon":""
+                },
+                {
+                    "name": "Printing Press",
+                    "information": "A place operating printing press upon a print medium thereby transferring the ink.",
+                    "price": "14",
+                    "group":"Creative Arts",
+                    "icon":""
+                }
+            ]
+        },
+        {
+            "name": "Transport/Travel and Tour",
+            "children": [
+                {
+                    "name": "Car Rentals",
+                    "information": "Car Rentals",
+                    "price": "10",
+                    "group":"Transport/Travel and Tour",
+                    "icon":""
+                },
+
+                {
+                    "name": "Ticketing",
+                    "information": "Bus ticketing or events ticketing",
+                    "price": "12",
+                    "group":"Transport/Travel and Tour",
+                    "icon":""
+                },
+                {
+                    "name": "Travel and Tour Agents",
+                    "information": "Office or people facilitating travel and tour process",
+                    "price": "13",
+                    "group":"Transport/Travel and Tour",
+                    "icon":""
+                },
+                {
+                    "name": "Car Sales",
+                    "information": "All cars buying and selling",
+                    "price": "14",
+                    "group":"Transport/Travel and Tour",
+                    "icon":""
+                },
+                {
+                    "name": "Trotro/Taxi stations",
+                    "information": "trotro/taxi stations",
+                    "price": "11",
+                    "group":"Transport/Travel and Tour",
+                    "icon":""
+                },
+                {
+                    "name": "Train station",
+                    "information": "Train Stations",
+                    "price": "14",
+                    "group":"Transport/Travel and Tour",
+                    "icon":""
                 }
             ]
         }

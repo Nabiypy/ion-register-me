@@ -85,9 +85,19 @@ export class DirectoryPage {
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Fisherman'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Fruit Vendor'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Poultry Breeder'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Petty Food Joints'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Police Station'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Fire Service'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Ambulance Service'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Security Guards'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Hospital'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
@@ -129,9 +139,57 @@ export class DirectoryPage {
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Technical'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Cooks'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'General Deliveries'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Fashion Designer'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Hairdressers'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Barber'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Cleaners'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Gardeners'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Makeup Artist'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Seamstress'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Decor'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Internet Cafe'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Information Centers'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Photographer'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Printing Press'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Trotro/Taxi stations'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Petty Traders'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Spare Parts Dealer'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Supermarkets'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Canopy and Chair Rentals'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Laundry'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Building Materials'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Salons'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Boutiques'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Cosmetics Shop'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Agro-chemical Shop'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }
-
-    
 
   }
   // Create basic user bio data table

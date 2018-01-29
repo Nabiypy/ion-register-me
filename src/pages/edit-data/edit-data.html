@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="hcolor">
-    <ion-title>My Expense</ion-title>
+    <ion-title>My Upload</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,7 +11,6 @@
   <form (ngSubmit)="updateData()">
     <ion-item>
       <ion-label>FindMeId</ion-label>
-      <!-- <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="data.date" name="date" required=""></ion-datetime> -->
       <ion-input type="text" placeholder="FindMeId" [(ngModel)]="data.date" name="date" required="" ></ion-input>
     </ion-item>
     <ion-item>
@@ -24,15 +23,17 @@
         <ion-option value="Plumber">Plumber</ion-option>
         <ion-option value="Electrician">Electrician</ion-option>
         <ion-option value="Momo">Momo Agent</ion-option>
+        <ion-option value="Barber">Barber</ion-option>
+        <ion-option value="Boutique">Boutique</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label>Name</ion-label>
-      <ion-input type="text" placeholder="Description" [(ngModel)]="data.description" name="description" required="" ></ion-input>
+      <ion-input type="text" placeholder="Owner name" [(ngModel)]="data.description" name="description" required="" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Phone </ion-label>
-      <ion-input type="number" placeholder="Amount" [(ngModel)]="data.amount" name="amount" required="" ></ion-input>
+      <ion-input type="number" placeholder="mobile" [(ngModel)]="data.amount" name="amount" required="" ></ion-input>
     </ion-item>
     <ion-input type="hidden" [(ngModel)]="data.rowid" name="rowid"></ion-input>
     <button ion-button type="submit" block>Update Data</button>
