@@ -13,8 +13,8 @@ import { Business } from './../../models/business.model';
 */
 @Injectable()
 export class RestProvider {
-  // baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
-  baseUrl: any = 'http://localhost:9000';
+  baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
+  // baseUrl: any = 'http://localhost:9000';
 
   result: any;
   constructor(public http: HttpClient, public storage: Storage) {
@@ -98,9 +98,10 @@ export class RestProvider {
   }
   
   updateBusiness(post: Business) {
-    console.log('@rest.ts Business credentials >>', post);
+    console.log('@rest.ts update Business >>', post);
+    console.log('@rest.ts post id >>>', post.id);
     return new Promise((resolve, reject) => {
-      this.http.put(this.baseUrl + '/api/business/update/'+post.id,{
+      this.http.put(this.baseUrl + '/api/business/update/'+post.id, JSON.stringify(post),{
         headers: new HttpHeaders({'Content-type':'application/json'})    
        })
         .map(res => this.result = res)
@@ -112,14 +113,19 @@ export class RestProvider {
     });
   }
 
-  removeBusiness(id) {
+  removeBusiness(post: Business) {
+    console.log('@rest.ts remove business >>', post);
+    console.log('@rest.ts post id >>>', post.id);
     return new Promise((resolve, reject) => {
-      this.http.delete(this.baseUrl + '/directory/remove/' + id).subscribe((res) => {
-        resolve(res);
-      }, (err) => {
-        reject(err);
-      });
-
+      this.http.delete(this.baseUrl + '/api/business/remove/'+post.id,{
+        headers: new HttpHeaders({'Content-type':'application/json'})    
+       })
+        .map(res => this.result = res)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
     });
   }
   

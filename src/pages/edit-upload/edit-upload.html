@@ -14,5 +14,72 @@
 
 
 <ion-content padding>
+  <form (ngSubmit)="updateUpload()">
+      <ion-row>
+          <ion-col>
+            <ion-list inset>
 
+              <ion-item>
+                  <div class="profile-image" (click)="presentActionSheet()">
+                      <img src="data:image/png;base64,{{data.gravatar}}">
+                    </div>
+              </ion-item>
+            <ion-item>
+                <ion-label>FindMeId</ion-label>
+                <ion-input type="text" 
+                  placeholder="findMeId" 
+                  [(ngModel)]="data.findMeId" 
+                  name="findMeId" required="" >
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input placeholder={{data.directory}} 
+                           name="officeName" 
+                           type="text" required 
+                           [(ngModel)]="data.officeName">
+                          </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input placeholder="Owner" 
+                           name="otherNames" 
+                           type="text" required 
+                           [(ngModel)]="data.otherNames">
+                          </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input placeholder="Contact Number" 
+                           name="mobile" 
+                           type="text" required 
+                           [(ngModel)]="data.mobile">
+                          </ion-input>
+              </ion-item>
+         
+              <ion-item>
+                <ion-input placeholder="Location" 
+                           name="homeTown" 
+                           type="text" required 
+                           [(ngModel)]="data.homeTown">
+                          </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input placeholder="Email Address" 
+                           name="email" 
+                           type="email" 
+                           [(ngModel)]="data.email">
+                          </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input placeholder="Website" 
+                            name="websiteUrl" 
+                            type="text" 
+                            [(ngModel)]="data.websiteUrl">
+                          </ion-input>
+            </ion-item>
+        
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      
+    <button ion-button type="submit" block>Update Data</button>
+  </form>
 </ion-content>

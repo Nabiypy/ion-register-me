@@ -4,6 +4,7 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import 'rxjs/add/operator/map';
 
@@ -19,14 +20,14 @@ import { UserResponse } from './../../models/token.model';
 @Injectable()
 export class AuthProvider {
   result: any;
-  // baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
-  baseUrl: any = 'http://localhost:9000';
+  baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
+  // baseUrl: any = 'http://localhost:9000';
 
   public token: any;
   userId: string;
   credentials = {} as User;
 
-  constructor(public http: HttpClient, public storage: Storage) {
+  constructor(public http: HttpClient, public storage: Storage, private geolocation: Geolocation) {
     console.log('Hello AuthProvider Provider');
   }
 

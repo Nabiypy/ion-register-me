@@ -88,15 +88,15 @@
             "name": "Food And Agriculture",
             "children": [
                 {
-                    "name": "Farmer",
-                    "information": "People engaged in agriculture, raising living organisms.",
-                    "price": "25",
-                    "group": "Food And Agriculture"
-                },
-                {
                     "name": "Butcher",
                     "information": "A person who may slaughter animals, dress their flesh",
                     "price": "19 ",
+                    "group": "Food And Agriculture"
+                },
+                {
+                    "name": "Farmer",
+                    "information": "People engaged in agriculture, raising living organisms.",
+                    "price": "25",
                     "group": "Food And Agriculture"
                 },
                 {
@@ -165,7 +165,7 @@
                 },
                 {
                     "name": "Immigration",
-                    "information": "Rescue service agency under ministry of interior",
+                    "information": "Citizenship service, passport regulations",
                     "price": "19",
                     "group": "Security Service",
                     "icon":""
@@ -519,6 +519,13 @@
                     "name": "Information Centers",
                     "information": "An center designed specifically for storing, processing, and retrieving information for dissemination at regular intervals",
                     "price": "11",
+                    "group":"Creative Arts",
+                    "icon":""
+                },
+                {
+                    "name": "Media House",
+                    "information": "Is a multi-platform media company with a focus on sports, culture, and lifestyle. As an umbrella brand.",
+                    "price": "14",
                     "group":"Creative Arts",
                     "icon":""
                 },

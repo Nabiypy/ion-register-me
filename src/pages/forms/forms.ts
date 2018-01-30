@@ -126,6 +126,15 @@ export class FormsPage {
     }else if (this.selectedName == "Welder") {
       this.merchanicsForm = true;
       console.log('selected Welder form', this.merchanicsForm);
+    }else if (this.selectedName == "Coffin Makers") {
+      this.merchanicsForm = true;
+      console.log('selected Coffin Makers form', this.merchanicsForm);
+    }else if (this.selectedName == "Shoemaker(cobbler)") {
+      this.merchanicsForm = true;
+      console.log('selected Shoemaker(cobbler) form', this.merchanicsForm);
+    }else if (this.selectedName == "Mason") {
+      this.merchanicsForm = true;
+      console.log('selected Mason form', this.merchanicsForm);
     }else if (this.selectedName == "Farmer") {
       this.farmerForm = true;
       console.log('selected main farm form', this.farmerForm);
@@ -157,6 +166,9 @@ export class FormsPage {
       this.servicesForm = true;
       console.log('selected Ambulance Service form', this.servicesForm);
     }else if (this.selectedName == "Security Guards") {
+      this.servicesForm = true;
+      console.log('selectedSecurity Guards form', this.servicesForm);
+    }else if (this.selectedName == "Immigration") {
       this.servicesForm = true;
       console.log('selectedSecurity Guards form', this.servicesForm);
     }else if (this.selectedName == "Hospital") {
@@ -261,6 +273,9 @@ export class FormsPage {
     }else if (this.selectedName == "Internet Cafe") {
       this.servicesForm = true;
       console.log('selected Internet Cafe form', this.servicesForm);
+    }else if (this.selectedName == "Media House") {
+      this.servicesForm = true;
+      console.log('selected Media House form', this.servicesForm);
     }else if (this.selectedName == "Petty Traders") {
       this.shopsForm = true;
       console.log('selected Petty Traders form', this.shopsForm);
@@ -291,8 +306,25 @@ export class FormsPage {
     }else if (this.selectedName == "Agro-chemical Shop") {
       this.shopsForm = true;
       console.log('selected Agro-chemical Shop form', this.shopsForm);
+    }else if (this.selectedName == "Car Rentals") {
+      this.dealersForm = true;
+      console.log('selected Car Rentals form', this.dealersForm);
+    }else if (this.selectedName == "Ticketing") {
+      this.dealersForm = true;
+      console.log('selected Ticketing form', this.dealersForm);
+    }else if (this.selectedName == "Travel and Tour Agents") {
+      this.dealersForm = true;
+      console.log('selected Travel and Tour Agents form', this.dealersForm);
+    }else if (this.selectedName == "Car Sales") {
+      this.dealersForm = true;
+      console.log('selected Car Sales form', this.dealersForm);
+    }else if (this.selectedName == "Trotro/Taxi stations") {
+      this.dealersForm = true;
+      console.log('selected Trotro/Taxi stations form', this.dealersForm);
+    }else if (this.selectedName == "Train station") {
+      this.dealersForm = true;
+      console.log('selected Train station form', this.dealersForm);
     }
-    
     
     this.setGeoLocation();
   }
@@ -312,7 +344,6 @@ export class FormsPage {
       this.createDBTables();
       }).catch(e => console.log(JSON.stringify(e)));
   }
-
 
   createDBTables(): void{
     this.db.executeSql('CREATE TABLE IF NOT EXISTS `business`( `id` INTEGER PRIMARY KEY,`userId` TEXT,`findMeId` TEXT,`officeName` TEXT,`otherNames` TEXT,`directory` TEXT,`group` TEXT,`mobile` TEXT,`email` TEXT,`gender` TEXT,`location` TEXT,`latitude` TEXT,`longitude` TEXT,`landSize` TEXT,`websiteUrl` TEXT,`fileUpload` TEXT,`timeDate` DATE,`dob` DATE,`otherInfo` TEXT,`gravatar` TEXT,`uploaded` BOOLEAN)', {}) 
@@ -347,8 +378,8 @@ export class FormsPage {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      targetWidth: 450,
-      targetHeight: 450,
+      targetWidth: 100,
+      targetHeight: 100,
       saveToPhotoAlbum: false
     }
     
@@ -415,8 +446,6 @@ export class FormsPage {
   addData() {
     this.navCtrl.push("AddDataPage");
   }
-  
- 
 
   addBusiness() {
     this.showLoader();
@@ -426,18 +455,18 @@ export class FormsPage {
         console.log('Business added successfully',result);
         this.isLoading.dismiss();
         this.presentToast('Business added successfully') 
-        this.navCtrl.push('TabsPage');
+        this.navCtrl.pop();
       }, (err) => {
         console.log(err);
         // this.error = err;
         this.isLoading.dismiss();
-        this.presentErrorToast(JSON.stringify(err));
+        this.presentErrorToast("Oops, service timedout."+"Check Network and try again");
       });
     }else{
-      let msg = 'Oops, service timedout, Login';
+      let msg = 'Oops, no user records, Login';
       this.isLoading.dismiss();
       this.presentErrorToast(msg);
-      this.navCtrl.push(LoginPage);
+      this.navCtrl.setRoot(LoginPage);
     }
   }
 
@@ -447,7 +476,6 @@ export class FormsPage {
     });
     this.isLoading.present();
   }
-
 
   presentToast(msg) {
     this.isToast = this.toastCtrl.create({

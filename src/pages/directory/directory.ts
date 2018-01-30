@@ -69,6 +69,12 @@ export class DirectoryPage {
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Welder'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Mason'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Shoemaker(cobbler)'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Coffin Makers'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Shops'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Services'){
@@ -98,6 +104,8 @@ export class DirectoryPage {
     }else if( post.name == 'Ambulance Service'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Security Guards'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Immigration'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Hospital'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
@@ -167,7 +175,7 @@ export class DirectoryPage {
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Printing Press'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
-    }else if( post.name == 'Trotro/Taxi stations'){
+    }else if( post.name == 'Media House'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Petty Traders'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
@@ -188,6 +196,18 @@ export class DirectoryPage {
     }else if( post.name == 'Cosmetics Shop'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Agro-chemical Shop'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Trotro/Taxi stations'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Car Rentals'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Ticketing'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Travel and Tour Agents'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Car Sales'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Train station'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }
 

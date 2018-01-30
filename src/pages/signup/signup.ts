@@ -1,7 +1,7 @@
 import { User } from './../../models/user.model';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 /**
@@ -19,13 +19,15 @@ import { Storage } from '@ionic/storage';
 export class SignupPage {
   error: any;
   isLoading: any;
+  isToast: any;
   credentials = {} as User;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public authService: AuthProvider,
               public loadingCtrl: LoadingController,
-              public storage: Storage) {
+              public storage: Storage,
+              private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -38,10 +40,12 @@ export class SignupPage {
     this.authService.createNewUser(this.credentials).then((result) => {
         this.isLoading.dismiss();
         console.log('signup response >>>',result);
-        this.navCtrl.setRoot('TabsPage');
+        this.navCtrl.pop();
     }, (err) => {
         this.isLoading.dismiss();
         console.log('an error occured creating account >>>',err);
+        this.presentToast("Username/Mobile already exists!");
+
         // this.navCtrl.setRoot('TabsPage');
     });
 }
@@ -55,6 +59,18 @@ login(){
     });
 
     this.isLoading.present();
-} 
+  } 
+
+  presentToast(msg) {
+    this.isToast = this.toastCtrl.create({
+    message: msg,
+    duration: 4000,
+    position: 'middle'
+  });
+  this.isToast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+  this.isToast.present();
+ }  
 
 }

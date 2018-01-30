@@ -1,6 +1,8 @@
+import { Business } from './../../models/business.model';
 import { RestProvider } from './../../providers/rest/rest';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the OfflinePage page.
@@ -19,40 +21,64 @@ export class OfflinePage {
   isLoading: any;
   allBusiness: any;
   isToast: any;
+  public userId: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private restProvider: RestProvider,
               public loadingCtrl: LoadingController,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController,
+              private storage: Storage) {
+                // this.userId = userId;
+                // this.reloadBusiness();
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OfflinePage');
+    this.storage.get('username').then((userId) => {
+      console.log('@offlinePage isLoggedIn >>>', userId);
+      this.userId = userId;
+      console.log('@offlinePage this.userId >>>', this.userId);
+    });
+    this.reloadBusiness();
+  }
+  reloadBusiness(){
     this.showLoader();
-     this.restProvider.getBusinessess().then((data) => {
-      this.isLoading.dismiss();
+    this.restProvider.getBusinessess().then((data) => {
+      this.isLoading.dismiss().catch(() => {});;
       this.businessess = data;
       console.log('all businessess >>>', this.businessess);
     }, (err) => {
-      console.log("an error occured from getBusinessess");
+      console.log("@reloadBusiness an error occured ~",JSON.stringify(err));
+      this.isLoading.dismiss().catch(() => {});;
     });
   }
-
-  editBusiness(bus) {
-    console.log('edit business', bus);
-    // this.navCtrl.push("EditDataPage", {
-    //   rowid:rowid
-    // });
+  
+  editBusiness(post: Business) {
+    console.log('edit business', post);
+    this.navCtrl.push("EditUploadPage", { post: post});
   }
   
   deleteBusiness(bus) {
     console.log('delele business', bus);
+    this.showLoader();
+    this.restProvider.removeBusiness(bus).then((result) => {
+      console.log('business successfully deleted ~',result);
+      this.presentToast('Business successfully removed');
+      this.isLoading.dismiss().catch(() => {});;
+      this.navCtrl.pop();
+    }, (err) => {
+      console.log(err);
+      // this.error = err;
+      this.isLoading.dismiss().catch(() => {});
+      this.presentToast('Oops, an error occured deleting business');
+    });
   }
 
   showLoader() {
     this.isLoading = this.loadingCtrl.create({
-      content: 'Loading businessess...'
+      content: 'Loading uploads...'
     });
     this.isLoading.present();
 
