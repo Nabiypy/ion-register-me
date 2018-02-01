@@ -68,6 +68,7 @@ export class OfflinePage {
       this.presentToast('Business successfully removed');
       this.isLoading.dismiss().catch(() => {});;
       this.navCtrl.pop();
+      this.reloadBusiness();
     }, (err) => {
       console.log(err);
       // this.error = err;

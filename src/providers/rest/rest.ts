@@ -13,7 +13,8 @@ import { Business } from './../../models/business.model';
 */
 @Injectable()
 export class RestProvider {
-  baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
+  // baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
+  baseUrl: any = 'https://sikafone-dxfglfdpbr.now.sh';
   // baseUrl: any = 'http://localhost:9000';
 
   result: any;

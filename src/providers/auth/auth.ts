@@ -20,7 +20,8 @@ import { UserResponse } from './../../models/token.model';
 @Injectable()
 export class AuthProvider {
   result: any;
-  baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
+  // baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
+  baseUrl: any = 'https://sikafone-dxfglfdpbr.now.sh';
   // baseUrl: any = 'http://localhost:9000';
 
   public token: any;
