@@ -138,13 +138,7 @@ export class EditUploadPage {
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
       this.avatar = 'data:image/jpeg;base64,' + imagePath;
-      let modal = this.modalCtrl.create('UploadModalPage', { data: imagePath });
-      modal.present();
-      modal.onDidDismiss(data => {
-        if (data && data.reload) {
-          this.reloadImages();
-        }
-      });
+      this.data.fileUpload = 'data:image/jpeg;base64,' + imagePath;
     }, (err) => {
       console.log('Error: ', err);
     });
