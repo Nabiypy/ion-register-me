@@ -32,5 +32,6 @@ export class SettingsPage {
     console.log('user logout');
     this.storage.remove('username');
     this.navCtrl.setRoot(LoginPage);
+    window.location.reload();
   }
 }

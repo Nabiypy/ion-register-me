@@ -20,9 +20,8 @@ import { UserResponse } from './../../models/token.model';
 @Injectable()
 export class AuthProvider {
   result: any;
-  // baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
-  baseUrl: any = 'https://sikafone-dxfglfdpbr.now.sh';
-  // baseUrl: any = 'http://localhost:9000';
+  // baseUrl: any = 'http://app-a8f9bd8b-8769-4f5e-b771-34aa090657d0.cleverapps.io';
+  baseUrl: any = 'http://localhost:8080';
 
   public token: any;
   userId: string;

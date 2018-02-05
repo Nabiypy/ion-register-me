@@ -7,15 +7,13 @@ import { Business } from './../../models/business.model';
 
 /*
   Generated class for the RestProvider provider.
-
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
 export class RestProvider {
-  // baseUrl: any = 'https://sikafone-ludulsmypu.now.sh';
-  baseUrl: any = 'https://sikafone-dxfglfdpbr.now.sh';
-  // baseUrl: any = 'http://localhost:9000';
+  // baseUrl: any = 'http://app-a8f9bd8b-8769-4f5e-b771-34aa090657d0.cleverapps.io';
+  baseUrl: any = 'http://localhost:8080';
 
   result: any;
   constructor(public http: HttpClient, public storage: Storage) {

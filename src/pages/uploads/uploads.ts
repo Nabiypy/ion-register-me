@@ -48,10 +48,9 @@ export class UploadsPage {
     this.getData();
     this.setGeoLocation();
   }
-  
-  ionViewWillEnter() {
-    this.getData();
-  }
+
+  ionViewWillEnter() { this.getData(); }
+
   setGeoLocation() {
     this.geolocation.getCurrentPosition({
       enableHighAccuracy: true,
@@ -66,19 +65,21 @@ export class UploadsPage {
       console.log('error: true',JSON.stringify(error));
     });
   }
+  
   getData() {
     this.sqlite.create({
       name: 'ionicdb.db',
       location: 'default'
     }).then((db: SQLiteObject) => {
-      db.executeSql('CREATE TABLE IF NOT EXISTS expense(rowid INTEGER PRIMARY KEY, date TEXT, type TEXT, description TEXT, amount INT)', {})
+      // db.executeSql('CREATE TABLE IF NOT EXISTS expense(rowid INTEGER PRIMARY KEY, date TEXT, type TEXT, description TEXT, amount INT)', {})
+      db.executeSql('CREATE TABLE IF NOT EXISTS expense(rowid INTEGER PRIMARY KEY,userId TEXT,findMeId TEXT,officeName TEXT,otherNames TEXT,mobile TEXT,directory TEXT,latitude TEXT,longitude TEXT,gender TEXT,fileUpload TEXT)', {})
       .then(res => console.log('Executed SQL'))
       .catch(e => console.log(e));
       db.executeSql('SELECT * FROM expense ORDER BY rowid DESC', {})
       .then(res => {
         this.expenses = [];
         for(var i=0; i<res.rows.length; i++) {
-          this.expenses.push({rowid:res.rows.item(i).rowid,date:res.rows.item(i).date,type:res.rows.item(i).type,description:res.rows.item(i).description,amount:res.rows.item(i).amount})
+          this.expenses.push({rowid:res.rows.item(i).rowid,userId:res.rows.item(i).userId,findMeId:res.rows.item(i).findMeId,officeName:res.rows.item(i).officeName,otherNames:res.rows.item(i).otherNames,mobile:res.rows.item(i).mobile,directory:res.rows.item(i).directory,latitude:res.rows.item(i).latitude,longitude:res.rows.item(i).longitude,gender:res.rows.item(i).gender,fileUpload:res.rows.item(i).fileUpload})
         }
       })
       .catch(e => console.log(e));
@@ -100,14 +101,10 @@ export class UploadsPage {
     }).catch(e => console.log(e));
   }
 
-  addData() {
-    this.navCtrl.push("AddDataPage");
-  }
+  addData() { this.navCtrl.push("AddDataPage"); }
   
   editData(rowid) {
-    this.navCtrl.push("EditDataPage", {
-      rowid:rowid
-    });
+    this.navCtrl.push("EditDataPage", { rowid:rowid });
   }
   
   deleteData(rowid) {

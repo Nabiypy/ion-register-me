@@ -105,8 +105,8 @@ export class FormsPage {
       console.log('@forms username >>>', userId);
       this.userId = userId;
       this.formValues.userId = userId;
-      this.formValues.findMeId = this.restProvider.generateFindMeId();
-      // this.formValues.findMeId = "FNDM2018"
+      // this.formValues.findMeId = this.restProvider.generateFindMeId();
+      this.formValues.findMeId = "FNDM2018" 
     });
     if (this.selectedName == 'Electrician') {
       this.electricianForm = true;
@@ -276,6 +276,9 @@ export class FormsPage {
     }else if (this.selectedName == "Media House") {
       this.servicesForm = true;
       console.log('selected Media House form', this.servicesForm);
+    }else if (this.selectedName == "Printing Press") {
+      this.servicesForm = true;
+      console.log('selected Printing Press form', this.servicesForm);
     }else if (this.selectedName == "Petty Traders") {
       this.shopsForm = true;
       console.log('selected Petty Traders form', this.shopsForm);
@@ -329,9 +332,7 @@ export class FormsPage {
     this.setGeoLocation();
   }
 
-  ionViewWillEnter() {
-    this.getData();
-  }
+  ionViewWillEnter() { this.getData(); }
 
   createDBFile():void {
     this.sqlite.create({
@@ -460,7 +461,7 @@ export class FormsPage {
         console.log(err);
         // this.error = err;
         this.isLoading.dismiss();
-        this.presentErrorToast("Oops, service timedout."+"Check Network and try again");
+        this.presentErrorToast("Service timedout."+"Check Network and try again");
       });
     }else{
       let msg = 'Oops, no user records, Login';

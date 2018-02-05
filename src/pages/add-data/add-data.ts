@@ -21,8 +21,8 @@ export class AddDataPage {
   lastImage: string = null;
   loading: Loading;
   imageUrl:string='null';
-  // data = { userId:"", findMeId:"", type:"", officeName:"", mobile:"", latitude:"", longitude:"", gravatar:"", otherInfor:""};
-  data = { date:"", type:"", description:"", amount:0 };
+  data = { userId:"", findMeId:"", officeName:"", otherNames:"", mobile:"", directory:"", latitude:"", longitude:"", gender:"", fileUpload:""};
+  // data = { date:"", type:"", description:"", amount:0 };
   latitude: any='';
   longitude: any="";
 
@@ -42,7 +42,11 @@ export class AddDataPage {
     }
     
     ionViewDidLoad(){
-      this.data.date= this.restProvider.generateFindMeId();
+      // this.data.date= this.restProvider.generateFindMeId();
+      this.data.findMeId= 'FINDMEiD';
+      this.data.latitude = this.latitude;
+      this.data.longitude = this.longitude
+
       this.setGeoLocation()
 
     }
@@ -60,75 +64,75 @@ export class AddDataPage {
         console.log('error: true',JSON.stringify(error));
       });
     }
-    public presentActionSheet() {
-      let actionSheet = this.actionSheetCtrl.create({
-        title: 'Select Image Source',
-        buttons: [
-          {
-            text: 'Load from Library',
-            handler: () => {
-              this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-            }
-          },
-          {
-            text: 'Use Camera',
-            handler: () => {
-              this.takePicture(this.camera.PictureSourceType.CAMERA);
-            }
-          },
-          {
-            text: 'Cancel',
-            role: 'cancel'
+  public presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Select Image Source',
+      buttons: [
+        {
+          text: 'Load from Library',
+          handler: () => {
+            this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
-        ]
-      });
-      actionSheet.present();
-    }
-
-    public takePicture(sourceType) {
-      // Create options for the Camera Dialog
-      var options = {
-        quality: 100,
-        sourceType: sourceType,
-        saveToPhotoAlbum: false,
-        correctOrientation: true
-      };
-     
-      // Get the data of an image
-      this.camera.getPicture(options).then((imagePath) => {
-        // Special handling for Android library
-        if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
-          this.filePath.resolveNativePath(imagePath)
-            .then(filePath => {
-              let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
-              let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
-              
-              let realPicName =this.createFileName();
-              this.copyFileToLocalDir(correctPath, currentName, realPicName);
-  
-              // get picture name for offline DB storage
-              this.imageUrl = correctPath+currentName;
-            });
-        } else {
-          var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
-          var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
-          let realPicName =this.createFileName();
-        this.copyFileToLocalDir(correctPath, currentName, realPicName);
-        this.imageUrl = correctPath+currentName;
-        
+        },
+        {
+          text: 'Use Camera',
+          handler: () => {
+            this.takePicture(this.camera.PictureSourceType.CAMERA);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
         }
-      }, (err) => {
-        this.presentToast('Error while selecting image.');
-      });
-    }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  public takePicture(sourceType) {
+    // Create options for the Camera Dialog
+    var options = {
+      quality: 100,
+      sourceType: sourceType,
+      saveToPhotoAlbum: false,
+      correctOrientation: true
+    };
     
+    // Get the data of an image
+    this.camera.getPicture(options).then((imagePath) => {
+      // Special handling for Android library
+      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
+        this.filePath.resolveNativePath(imagePath)
+          .then(filePath => {
+            let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+            let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
+            
+            let realPicName =this.createFileName();
+            this.copyFileToLocalDir(correctPath, currentName, realPicName);
+
+            // get picture name for offline DB storage
+            this.imageUrl = correctPath+currentName;
+          });
+      } else {
+        var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
+        var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+        let realPicName =this.createFileName();
+      this.copyFileToLocalDir(correctPath, currentName, realPicName);
+      this.imageUrl = correctPath+currentName;
+      
+      }
+    }, (err) => {
+      this.presentToast('Error while selecting image.');
+    });
+  }
+  
      // Create a new name for the image
-private createFileName() {
-  var d = new Date(),
-  n = d.getTime(),
-  newFileName =  n + ".jpg";
-  return newFileName;
-}
+  private createFileName() {
+    var d = new Date(),
+    n = d.getTime(),
+    newFileName =  n + ".jpg";
+    return newFileName;
+  }
  
 // Copy the image to a local folder
 private copyFileToLocalDir(namePath, currentName, newFileName) {
@@ -163,8 +167,18 @@ public pathForImage(img) {
       name: 'ionicdb.db',
       location: 'default'
     }).then((db: SQLiteObject) => {
-      db.executeSql('INSERT INTO expense VALUES(NULL,?,?,?,?)',[this.data.date,this.data.type,this.data.description,this.data.amount])
-        .then(res => {
+      db.executeSql('INSERT INTO expense VALUES(NULL,?,?,?,?,?,?,?,?,?,?)',[
+        this.data.userId,
+        this.data.findMeId,
+        this.data.officeName,
+        this.data.otherNames,
+        this.data.mobile,
+        this.data.directory,
+        this.data.latitude,
+        this.data.longitude,
+        this.data.gender,
+        this.data.fileUpload
+      ]).then(res => {
           console.log(res);
           this.toast.show('Data saved', '5000', 'center').subscribe(
             toast => {
@@ -189,6 +203,5 @@ public pathForImage(img) {
       );
     });
   }
-
 
 }
