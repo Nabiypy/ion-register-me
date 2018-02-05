@@ -18,9 +18,7 @@
 
   <ion-list *ngFor="let bus of businessess; let i=index">
     <ion-item  *ngIf="(userId == bus.userId)">
-      <!-- <div >
-         
-      </div> -->
+
       <ion-thumbnail item-start>
           <img src="{{bus.fileUpload}}">
         </ion-thumbnail>
