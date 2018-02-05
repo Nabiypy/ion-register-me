@@ -10,7 +10,9 @@ import { Toast } from '@ionic-native/toast';
 })
 export class EditDataPage {
 
-  data = { rowid:0, date:"", type:"", description:"", amount:0 };
+  // data = { rowid:0, date:"", type:"", description:"", amount:0 };
+  data = { userId:"", findMeId:"", officeName:"", otherNames:"", mobile:"", directory:"", latitude:"", longitude:"", gender:"", fileUpload:""};
+
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -57,8 +59,17 @@ export class EditDataPage {
       name: 'ionicdb.db',
       location: 'default'
     }).then((db: SQLiteObject) => {
-      db.executeSql('UPDATE expense SET date=?,type=?,description=?,amount=? WHERE rowid=?',[this.data.date,this.data.type,this.data.description,this.data.amount,this.data.rowid])
-        .then(res => {
+      db.executeSql('UPDATE expense SET findMeId=?,officeName=?,otherNames=?,mobile=?,directory=?,latitude=?,longitude=?,gender=?,fileUpload=? WHERE rowid=?',[
+        this.data.findMeId,
+        this.data.officeName,
+        this.data.otherNames,
+        this.data.mobile,
+        this.data.directory,
+        this.data.latitude,
+        this.data.longitude,
+        this.data.gender,
+        this.data.fileUpload
+      ]).then(res => {
           console.log(res);
           this.toast.show('Data updated', '5000', 'center').subscribe(
             toast => {

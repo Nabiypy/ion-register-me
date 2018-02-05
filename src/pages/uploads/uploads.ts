@@ -4,6 +4,7 @@ import { Business } from './../../models/business.model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the UploadsPage page.
@@ -34,17 +35,25 @@ export class UploadsPage {
   latitude: any;
   longitude: any;
   findMeId: any;
+  userId: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private sqlite: SQLite,
-              private geolocation: Geolocation) {
+              private geolocation: Geolocation,
+              public storage: Storage) {
                 this.latitude = "";
                 this.longitude = "";
+            console.log('all expenses >>>',this.expenses);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UploadsPage');
+    this.storage.get('username').then((userId) => {
+      console.log('@offlinePage isLoggedIn >>>', userId);
+      this.userId = userId;
+      console.log('@offlinePage this.userId >>>', this.userId);
+    });
     this.getData();
     this.setGeoLocation();
   }
@@ -65,7 +74,7 @@ export class UploadsPage {
       console.log('error: true',JSON.stringify(error));
     });
   }
-  
+
   getData() {
     this.sqlite.create({
       name: 'ionicdb.db',
