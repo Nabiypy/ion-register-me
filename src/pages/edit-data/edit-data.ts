@@ -11,7 +11,7 @@ import { Toast } from '@ionic-native/toast';
 export class EditDataPage {
 
   // data = { rowid:0, date:"", type:"", description:"", amount:0 };
-  data = { userId:"", findMeId:"", officeName:"", otherNames:"", mobile:"", directory:"", latitude:"", longitude:"", gender:"", fileUpload:""};
+  data = { rowid:0, userId:"", findMeId:"", officeName:"", otherNames:"", mobile:"", directory:"", latitude:"", longitude:"", gender:"", fileUpload:""};
 
 
   constructor(public navCtrl: NavController,
@@ -30,10 +30,16 @@ export class EditDataPage {
         .then(res => {
           if(res.rows.length > 0) {
             this.data.rowid = res.rows.item(0).rowid;
-            this.data.date = res.rows.item(0).date;
-            this.data.type = res.rows.item(0).type;
-            this.data.description = res.rows.item(0).description;
-            this.data.amount = res.rows.item(0).amount;
+            this.data.userId = res.rows.item(0).userId;
+            this.data.findMeId = res.rows.item(0).findMeId;
+            this.data.officeName = res.rows.item(0).officeName;
+            this.data.otherNames = res.rows.item(0).otherNames;
+            this.data.mobile = res.rows.item(0).mobile;
+            this.data.directory = res.rows.item(0).directory;
+            this.data.latitude = res.rows.item(0).latitude;
+            this.data.longitude = res.rows.item(0).longitude;
+            this.data.gender = res.rows.item(0).gender;
+            this.data.fileUpload = res.rows.item(0).fileUpload;
           }
         })
         .catch(e => {

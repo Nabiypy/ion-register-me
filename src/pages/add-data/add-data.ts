@@ -21,7 +21,7 @@ export class AddDataPage {
   lastImage: string = null;
   loading: Loading;
   imageUrl:string='null';
-  data = { userId:"", findMeId:"", officeName:"", otherNames:"", mobile:"", directory:"", latitude:"", longitude:"", gender:"", fileUpload:""};
+  data = { userId:"", findMeId:"", officeName:"", otherNames:"", mobile:"", directory:"", latitude:"", longitude:"",location:"", gender:"", fileUpload:"",otherInfo:""};
   // data = { date:"", type:"", description:"", amount:0 };
   latitude: any='';
   longitude: any="";
@@ -167,7 +167,7 @@ public pathForImage(img) {
       name: 'ionicdb.db',
       location: 'default'
     }).then((db: SQLiteObject) => {
-      db.executeSql('INSERT INTO expense VALUES(NULL,?,?,?,?,?,?,?,?,?,?)',[
+      db.executeSql('INSERT INTO expense VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)',[
         this.data.userId,
         this.data.findMeId,
         this.data.officeName,
@@ -176,10 +176,12 @@ public pathForImage(img) {
         this.data.directory,
         this.data.latitude,
         this.data.longitude,
+        this.data.location,
         this.data.gender,
-        this.data.fileUpload
+        this.data.fileUpload,
+        this.data.otherInfo
       ]).then(res => {
-          console.log(res);
+          console.log("Save offline data >>> ",JSON.stringify(res));
           this.toast.show('Data saved', '5000', 'center').subscribe(
             toast => {
               this.navCtrl.popToRoot();
@@ -187,7 +189,7 @@ public pathForImage(img) {
           );
         })
         .catch(e => {
-          console.log(e);
+          console.log("error saving offline data >>> ",JSON.stringify(e));
           this.toast.show(e, '5000', 'center').subscribe(
             toast => {
               console.log(toast);
@@ -195,7 +197,7 @@ public pathForImage(img) {
           );
         });
     }).catch(e => {
-      console.log(e);
+      console.log("error inserting to offline database >>>",JSON.stringify(e));
       this.toast.show(e, '5000', 'center').subscribe(
         toast => {
           console.log(toast);

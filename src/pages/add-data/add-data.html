@@ -39,11 +39,11 @@
       </ion-item>
       <ion-item>
         <ion-label>Office Name</ion-label>
-        <ion-input type="text" placeholder="Shop Name" [(ngModel)]="data.officeName" name="officeName" required="" ></ion-input>
+        <ion-input type="text" placeholder="Shop/Farm/Unit Name" [(ngModel)]="data.officeName" name="officeName" required="" ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Owner Name</ion-label>
-        <ion-input type="text" placeholder="Other Names" [(ngModel)]="data.otherNames" name="otherNames" required="" ></ion-input>
+        <ion-input type="text" placeholder="Owner Name" [(ngModel)]="data.otherNames" name="otherNames" required="" ></ion-input>
       </ion-item>
 
     <ion-item>
@@ -58,14 +58,20 @@
         <ion-option value="Female">Female</ion-option>
       </ion-select>
     </ion-item>
-    <!-- <ion-item>
-      <ion-label>Location</ion-label>
-      <ion-input type="text" placeholder=" Location" [(ngModel)]="location" name="location" required="" ></ion-input>
-    </ion-item> -->
-    <!-- <ion-item>
-      <ion-label>Email</ion-label>
-      <ion-input type="email" placeholder="Email" [(ngModel)]="email" name="email" required="" ></ion-input>
-    </ion-item> -->
+    <ion-item>
+      <ion-input placeholder="Location" 
+                 name="location" 
+                 type="text" required 
+                 [(ngModel)]="data.location">
+                </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea placeholder="Items/Products" 
+                 name="otherInfo" 
+                 type="text" 
+                 [(ngModel)]="data.otherInfo">
+      </ion-textarea>
+    </ion-item>
     <ion-item>
       <button ion-button round color="primary" (click)="takePicture()" full>
         <ion-icon name="md-camera"></ion-icon>

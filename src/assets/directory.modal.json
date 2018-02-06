@@ -585,6 +585,26 @@
                     "icon":""
                 }
             ]
+        },
+        {
+            "name": "Fuel And Gas Station",
+            "children": [
+                {
+                    "name": "Filling Station",
+                    "information": "A filling station is a facility that sells fuel and engine lubricants for motor vehicles",
+                    "price": "10",
+                    "group":"Fuel And Gas Station",
+                    "icon":""
+                },
+                {
+                    "name": "LPG Station",
+                    "information": "Liquefied petroleum gas or LPG auto gas stations",
+                    "price": "10",
+                    "group":"Fuel And Gas Station",
+                    "icon":""
+                }
+               
+            ]
         }
     ]
 }

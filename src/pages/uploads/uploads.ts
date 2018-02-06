@@ -81,14 +81,14 @@ export class UploadsPage {
       location: 'default'
     }).then((db: SQLiteObject) => {
       // db.executeSql('CREATE TABLE IF NOT EXISTS expense(rowid INTEGER PRIMARY KEY, date TEXT, type TEXT, description TEXT, amount INT)', {})
-      db.executeSql('CREATE TABLE IF NOT EXISTS expense(rowid INTEGER PRIMARY KEY,userId TEXT,findMeId TEXT,officeName TEXT,otherNames TEXT,mobile TEXT,directory TEXT,latitude TEXT,longitude TEXT,gender TEXT,fileUpload TEXT)', {})
+      db.executeSql('CREATE TABLE IF NOT EXISTS expense(rowid INTEGER PRIMARY KEY, userId TEXT, findMeId TEXT,officeName TEXT, otherNames TEXT, mobile TEXT, directory TEXT, latitude TEXT, longitude TEXT, location TEXT, gender TEXT, fileUpload TEXT, otherInfo TEXT)', {})
       .then(res => console.log('Executed SQL'))
       .catch(e => console.log(e));
       db.executeSql('SELECT * FROM expense ORDER BY rowid DESC', {})
       .then(res => {
         this.expenses = [];
         for(var i=0; i<res.rows.length; i++) {
-          this.expenses.push({rowid:res.rows.item(i).rowid,userId:res.rows.item(i).userId,findMeId:res.rows.item(i).findMeId,officeName:res.rows.item(i).officeName,otherNames:res.rows.item(i).otherNames,mobile:res.rows.item(i).mobile,directory:res.rows.item(i).directory,latitude:res.rows.item(i).latitude,longitude:res.rows.item(i).longitude,gender:res.rows.item(i).gender,fileUpload:res.rows.item(i).fileUpload})
+          this.expenses.push({rowid:res.rows.item(i).rowid,userId:res.rows.item(i).userId,findMeId:res.rows.item(i).findMeId,officeName:res.rows.item(i).officeName,otherNames:res.rows.item(i).otherNames,mobile:res.rows.item(i).mobile,directory:res.rows.item(i).directory,latitude:res.rows.item(i).latitude,longitude:res.rows.item(i).longitude,location:res.rows.item(i).location,gender:res.rows.item(i).gender,fileUpload:res.rows.item(i).fileUpload,otherInfo:res.rows.item(i).otherInfo})
         }
       })
       .catch(e => console.log(e));
@@ -123,7 +123,7 @@ export class UploadsPage {
     }).then((db: SQLiteObject) => {
       db.executeSql('DELETE FROM expense WHERE rowid=?', [rowid])
       .then(res => {
-        console.log(res);
+        console.log("Delete from expense", JSON.stringify(res));
         this.getData();
       })
       .catch(e => console.log(e));

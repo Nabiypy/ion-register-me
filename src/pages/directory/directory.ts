@@ -53,7 +53,6 @@ export class DirectoryPage {
     //   console.log("an error occured from getDirectories");
     // });
   }
-
   
   selectedPost(post){
     console.log('selected directory', post);
@@ -208,6 +207,10 @@ export class DirectoryPage {
     }else if( post.name == 'Car Sales'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }else if( post.name == 'Train station'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'Filling Station'){
+      this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
+    }else if( post.name == 'LPG Station'){
       this.navCtrl.push('FormsPage',{ id: post.id, name: post.name,  group: post.group});
     }
 

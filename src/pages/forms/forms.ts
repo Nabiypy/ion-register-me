@@ -288,6 +288,9 @@ export class FormsPage {
     }else if (this.selectedName == "Supermarkets") {
       this.shopsForm = true;
       console.log('selected Supermarkets form', this.shopsForm);
+    }else if (this.selectedName == "Hairdressers") {
+      this.shopsForm = true;
+      console.log('selected Hairdressers form', this.shopsForm);
     }else if (this.selectedName == "Canopy and Chair Rentals") {
       this.shopsForm = true;
       console.log('selected Canopy and Chair Rentals form', this.shopsForm);
@@ -327,6 +330,12 @@ export class FormsPage {
     }else if (this.selectedName == "Train station") {
       this.dealersForm = true;
       console.log('selected Train station form', this.dealersForm);
+    }else if (this.selectedName == "Filling Station") {
+      this.servicesForm = true;
+      console.log('selected Filling Station form', this.servicesForm);
+    }else if (this.selectedName == "LPG Station") {
+      this.servicesForm = true;
+      console.log('selected LPG Station form', this.servicesForm);
     }
     
     this.setGeoLocation();
