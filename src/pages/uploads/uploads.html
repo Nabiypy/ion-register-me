@@ -13,29 +13,35 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Pending List</h3>
+  <h5>Pending.. geocode: <span >{{latitude}} , {{longitude}}</span></h5>
 
   <ion-list *ngFor="let expense of expenses; let i=index">
-    <ion-item  *ngIf="(userId == expense.userId)">
-
-      <ion-thumbnail item-start>
+    <ion-item-sliding  *ngIf="(userId == expense.userId)">
+      <ion-item>
+        <ion-thumbnail class="profile-image" item-start>
           <img src="{{expense.fileUpload}}">
         </ion-thumbnail>
         <h2>{{expense.findMeId}}</h2>
         <p>{{expense.mobile}}</p>
-        <p>{{expense.geolocation}}</p>
-        <button ion-button clear item-end (click)="editData(expense.rowid)">Edit</button>
-        <button ion-button clear item-end (click)="deleteData(expense.rowid)">X</button>
-    </ion-item>
+        <p>{{expense.directory}}</p>
+        <button ion-button clear item-end (click)="uploadOnline(expense)">
+            <ion-icon name="cloud-upload"></ion-icon> Send
+        </button>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="editData(expense.rowid)">
+          <ion-icon name="paper"></ion-icon> Edit
+        </button>
+        <button ion-button color="danger" (click)="deleteData(expense.rowid)">
+          <ion-icon name="trash"></ion-icon> Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
   <ion-fab  right middle>
     <button ion-fab color="danger" (click)="addData()">
-      add
+      <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>Location: {{latitude}} , {{longitude}}</ion-title>
-  </ion-toolbar>
-</ion-footer>
+</ion-content>

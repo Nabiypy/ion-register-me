@@ -52,7 +52,7 @@ export class LoginPage {
   }
 
   login(){
-    console.log('login credentials', this.credentials)
+    console.log('login credentials', JSON.stringify(this.credentials))
     this.showLoader();
     this.storage.set('username', this.credentials.username);
     this.authService.signIn(this.credentials).then((result) => {

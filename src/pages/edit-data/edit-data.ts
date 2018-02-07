@@ -10,8 +10,7 @@ import { Toast } from '@ionic-native/toast';
 })
 export class EditDataPage {
 
-  // data = { rowid:0, date:"", type:"", description:"", amount:0 };
-  data = { rowid:0, userId:"", findMeId:"", officeName:"", otherNames:"", mobile:"", directory:"", latitude:"", longitude:"", gender:"", fileUpload:""};
+  data = { rowid:0, userId:"", findMeId:"", officeName:"", otherNames:"", mobile:"", directory:"", latitude:"", location:"", longitude:"", gender:"", fileUpload:"", otherInfo:""};
 
 
   constructor(public navCtrl: NavController,
@@ -26,7 +25,7 @@ export class EditDataPage {
       name: 'ionicdb.db',
       location: 'default'
     }).then((db: SQLiteObject) => {
-      db.executeSql('SELECT * FROM expense WHERE rowid=?', [rowid])
+      db.executeSql('SELECT * FROM tester WHERE rowid=?', [rowid])
         .then(res => {
           if(res.rows.length > 0) {
             this.data.rowid = res.rows.item(0).rowid;
@@ -38,12 +37,14 @@ export class EditDataPage {
             this.data.directory = res.rows.item(0).directory;
             this.data.latitude = res.rows.item(0).latitude;
             this.data.longitude = res.rows.item(0).longitude;
+            this.data.location = res.rows.item(0).location;
             this.data.gender = res.rows.item(0).gender;
             this.data.fileUpload = res.rows.item(0).fileUpload;
+            this.data.otherInfo = res.rows.item(0).otherInfo;
           }
         })
         .catch(e => {
-          console.log(e);
+          console.log(JSON.stringify(e));
           this.toast.show(e, '5000', 'center').subscribe(
             toast => {
               console.log(toast);
@@ -65,7 +66,7 @@ export class EditDataPage {
       name: 'ionicdb.db',
       location: 'default'
     }).then((db: SQLiteObject) => {
-      db.executeSql('UPDATE expense SET findMeId=?,officeName=?,otherNames=?,mobile=?,directory=?,latitude=?,longitude=?,gender=?,fileUpload=? WHERE rowid=?',[
+      db.executeSql('UPDATE tester SET findMeId=?,officeName=?,otherNames=?,mobile=?,directory=?,latitude=?,longitude=?,location=?,gender=?,fileUpload=?,otherInfo=? WHERE rowid=?',[
         this.data.findMeId,
         this.data.officeName,
         this.data.otherNames,
@@ -73,8 +74,10 @@ export class EditDataPage {
         this.data.directory,
         this.data.latitude,
         this.data.longitude,
+        this.data.location,
         this.data.gender,
-        this.data.fileUpload
+        this.data.fileUpload,
+        this.data.otherInfo
       ]).then(res => {
           console.log(res);
           this.toast.show('Data updated', '5000', 'center').subscribe(

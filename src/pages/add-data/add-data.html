@@ -39,7 +39,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Office Name</ion-label>
-        <ion-input type="text" placeholder="Shop/Farm/Unit Name" [(ngModel)]="data.officeName" name="officeName" required="" ></ion-input>
+        <ion-input type="text" placeholder="Shop or Farm or Unit Name" [(ngModel)]="data.officeName" name="officeName" required="" ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Owner Name</ion-label>
@@ -48,7 +48,7 @@
 
     <ion-item>
       <ion-label>Mobile</ion-label>
-      <ion-input type="number" placeholder="mobile" [(ngModel)]="data.mobile" name="mobile" required="" ></ion-input>
+      <ion-input type="text" placeholder="mobile" [(ngModel)]="data.mobile" name="mobile" required="" ></ion-input>
     </ion-item>
     
     <ion-item>
@@ -66,7 +66,7 @@
                 </ion-input>
     </ion-item>
     <ion-item>
-      <ion-textarea placeholder="Items/Products" 
+      <ion-textarea placeholder="Items or Products or Service" 
                  name="otherInfo" 
                  type="text" 
                  [(ngModel)]="data.otherInfo">

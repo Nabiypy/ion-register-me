@@ -6,8 +6,9 @@ import { RestProvider } from './../../providers/rest/rest';
 import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
-import { Camera } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -16,7 +17,7 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'add-data.html',
 })
 export class AddDataPage {
-  public userId: any="hanson";
+  public userId: any="";
   public findMeId: any= "";
   lastImage: string = null;
   loading: Loading;
@@ -25,6 +26,11 @@ export class AddDataPage {
   // data = { date:"", type:"", description:"", amount:0 };
   latitude: any='';
   longitude: any="";
+  base64Image: any;
+  photos: any;
+
+  imageURI:any;
+  imageFileName:any;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -38,18 +44,24 @@ export class AddDataPage {
     public actionSheetCtrl: ActionSheetController, 
     public toastCtrl: ToastController, 
     public platform: Platform,
-    private geolocation: Geolocation) {
+    private geolocation: Geolocation,
+    public storage: Storage) {
+      
     }
     
     ionViewDidLoad(){
-      // this.data.date= this.restProvider.generateFindMeId();
-      this.data.findMeId= 'FINDMEiD';
-      this.data.latitude = this.latitude;
-      this.data.longitude = this.longitude
-
+      this.data.findMeId= this.restProvider.generateFindMeId();
+      // this.data.findMeId= 'FINDMEiD';
+      this.storage.get('username').then((userId) => {
+        console.log('@AddDataPage isLoggedIn >>>', userId);
+        this.userId = userId;
+        this.data.userId = userId;
+        console.log('@AddDataPage this.data.userId >>>', this.data.userId);
+      });
+      console.log("@AddDataPage data payload >>> ", JSON.stringify(this.data));
       this.setGeoLocation()
-
     }
+
     setGeoLocation() {
       this.geolocation.getCurrentPosition({
         enableHighAccuracy: true,
@@ -58,73 +70,48 @@ export class AddDataPage {
       }).then((resp) => {
         this.longitude = resp.coords.longitude;
         this.latitude = resp.coords.latitude;
-        console.log('position resp >> ', resp.coords);
+        this.data.latitude = JSON.stringify(resp.coords.latitude);
+        this.data.longitude = JSON.stringify(resp.coords.longitude);
+        console.log('resp.coords.latitude >> ', JSON.stringify(resp.coords.latitude));
+        console.log('resp.coords.longitude >> ', JSON.stringify(resp.coords.longitude));
+        console.log("this.data.latitude >> ", this.data.latitude);
+        console.log("this.data.longitude >>" , this.data.longitude);
+
       }).catch((error) => {
         // this.error = error;
         console.log('error: true',JSON.stringify(error));
       });
     }
-  public presentActionSheet() {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Select Image Source',
-      buttons: [
-        {
-          text: 'Load from Library',
-          handler: () => {
-            this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-          }
-        },
-        {
-          text: 'Use Camera',
-          handler: () => {
-            this.takePicture(this.camera.PictureSourceType.CAMERA);
-          }
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        }
-      ]
-    });
-    actionSheet.present();
-  }
 
-  public takePicture(sourceType) {
-    // Create options for the Camera Dialog
-    var options = {
-      quality: 100,
-      sourceType: sourceType,
-      saveToPhotoAlbum: false,
-      correctOrientation: true
-    };
-    
-    // Get the data of an image
-    this.camera.getPicture(options).then((imagePath) => {
-      // Special handling for Android library
-      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
-        this.filePath.resolveNativePath(imagePath)
-          .then(filePath => {
-            let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
-            let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
-            
-            let realPicName =this.createFileName();
-            this.copyFileToLocalDir(correctPath, currentName, realPicName);
-
-            // get picture name for offline DB storage
-            this.imageUrl = correctPath+currentName;
-          });
-      } else {
-        var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
-        var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
-        let realPicName =this.createFileName();
-      this.copyFileToLocalDir(correctPath, currentName, realPicName);
-      this.imageUrl = correctPath+currentName;
-      
+    takePicture(){
+      console.log('take picture');
+      const options: CameraOptions = {
+        quality: 100,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        targetWidth: 100,
+        targetHeight: 100,
+        saveToPhotoAlbum: false
       }
-    }, (err) => {
-      this.presentToast('Error while selecting image.');
-    });
-  }
+      
+      this.camera.getPicture(options).then((imageData) => {
+       // imageData is either a base64 encoded string or a file URI
+       // If it's base64:
+        this.base64Image = 'data:image/jpeg;base64,' + imageData;
+        this.imageURI = imageData;
+        this.data.fileUpload = this.base64Image;
+        this.photos = this.base64Image;
+        this.photos.reverse();
+      }, (err) => {
+       // Handle error
+       let errMsg = 'error taking picture'
+       console.log('error taking picture>>>' + err);
+       this.presentToast(errMsg);
+      });
+    }
+  
+
   
      // Create a new name for the image
   private createFileName() {
@@ -167,7 +154,7 @@ public pathForImage(img) {
       name: 'ionicdb.db',
       location: 'default'
     }).then((db: SQLiteObject) => {
-      db.executeSql('INSERT INTO expense VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)',[
+      db.executeSql('INSERT INTO tester VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)',[
         this.data.userId,
         this.data.findMeId,
         this.data.officeName,
@@ -182,6 +169,7 @@ public pathForImage(img) {
         this.data.otherInfo
       ]).then(res => {
           console.log("Save offline data >>> ",JSON.stringify(res));
+          console.log("offline data to be save >>> ",JSON.stringify(this.data));
           this.toast.show('Data saved', '5000', 'center').subscribe(
             toast => {
               this.navCtrl.popToRoot();

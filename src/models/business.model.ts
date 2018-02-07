@@ -2,6 +2,7 @@ export class Business {
     constructor( 
         public id: any,
         public userId?: string,
+        public rowid?: string,
         public directory?: string,
         public gravatar?: any,
         public officeName?: string,

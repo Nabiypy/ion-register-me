@@ -105,8 +105,8 @@ export class FormsPage {
       console.log('@forms username >>>', userId);
       this.userId = userId;
       this.formValues.userId = userId;
-      // this.formValues.findMeId = this.restProvider.generateFindMeId();
-      this.formValues.findMeId = "FNDM2018" 
+      this.formValues.findMeId = this.restProvider.generateFindMeId();
+      // this.formValues.findMeId = "FNDM2018";
     });
     if (this.selectedName == 'Electrician') {
       this.electricianForm = true;
@@ -492,10 +492,10 @@ export class FormsPage {
     message: msg,
     duration: 4000,
     position: 'middle'
-  });
-
-  this.isToast.present();
-}
+    });
+    this.isToast.present();
+  }
+  
   presentErrorToast(msg) {
     this.isToast = this.toastCtrl.create({
     message: msg,

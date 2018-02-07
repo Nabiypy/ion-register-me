@@ -20,13 +20,14 @@
     <ion-item  *ngIf="(userId == bus.userId)">
 
       <ion-thumbnail item-start>
-          <img src="{{bus.fileUpload}}">
-        </ion-thumbnail>
-        <h2>{{bus.findMeId}}</h2>
-        <p>{{bus.mobile}}</p>
-        <p>{{bus.geolocation}}</p>
-        <button ion-button clear item-end (click)="editBusiness(bus)">Edit</button>
-        <button ion-button clear item-end (click)="deleteBusiness(bus)">X</button>
+        <img src="{{bus.fileUpload}}">
+      </ion-thumbnail>
+      <h2>{{bus.findMeId}}</h2>
+      <p>{{bus.mobile}}</p>
+      <p>{{bus.geolocation}}</p>
+      <p>{{bus.directory}}</p>
+      <button ion-button clear item-end (click)="editBusiness(bus)">Edit</button>
+      <button ion-button clear item-end (click)="deleteBusiness(bus)">X</button>
     </ion-item>
   </ion-list>
 </ion-content>

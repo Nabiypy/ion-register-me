@@ -12,8 +12,8 @@ import { Business } from './../../models/business.model';
 */
 @Injectable()
 export class RestProvider {
-  // baseUrl: any = 'http://app-a8f9bd8b-8769-4f5e-b771-34aa090657d0.cleverapps.io';
-  baseUrl: any = 'http://localhost:8080';
+  baseUrl: any = 'http://app-a8f9bd8b-8769-4f5e-b771-34aa090657d0.cleverapps.io';
+  // baseUrl: any = 'http://localhost:8080';
 
   result: any;
   constructor(public http: HttpClient, public storage: Storage) {
@@ -70,7 +70,7 @@ export class RestProvider {
   }
 
   createBusiness(post: Business) {
-    console.log('@rest.ts Business credentials >>', post);
+    console.log('@rest.ts Business credentials >>', JSON.stringify(post));
     return new Promise((resolve, reject) => {
       this.http.post(this.baseUrl + '/api/business', JSON.stringify(post),{
         headers: new HttpHeaders({'Content-type':'application/json'})    
@@ -97,7 +97,7 @@ export class RestProvider {
   }
   
   updateBusiness(post: Business) {
-    console.log('@rest.ts update Business >>', post);
+    console.log('@rest.ts update Business >>', JSON.stringify(post));
     console.log('@rest.ts post id >>>', post.id);
     return new Promise((resolve, reject) => {
       this.http.put(this.baseUrl + '/api/business/update/'+post.id, JSON.stringify(post),{
@@ -113,7 +113,7 @@ export class RestProvider {
   }
 
   removeBusiness(post: Business) {
-    console.log('@rest.ts remove business >>', post);
+    console.log('@rest.ts remove business >>', JSON.stringify(post));
     console.log('@rest.ts post id >>>', post.id);
     return new Promise((resolve, reject) => {
       this.http.delete(this.baseUrl + '/api/business/remove/'+post.id,{

@@ -11,11 +11,11 @@
   <form (ngSubmit)="updateData()">
     <ion-item>
       <ion-label>FindMeId</ion-label>
-      <ion-input type="text" placeholder="FindMeId" [(ngModel)]="data.date" name="date" required="" ></ion-input>
+      <ion-input type="text" placeholder="FindMeId" [(ngModel)]="data.findMeId" name="date" required="" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Directory</ion-label>
-      <ion-select [(ngModel)]="data.type" name="type" required="">
+      <ion-select [(ngModel)]="data.directory" name="directory" required="">
         <ion-option value="Sikafone">Sikafone Agent</ion-option>
         <ion-option value="Farmer">Farmer</ion-option>
         <ion-option value="Merchanic">Merchanic</ion-option>
@@ -39,20 +39,41 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Name</ion-label>
-      <ion-input type="text" placeholder="Owner name" [(ngModel)]="data.description" name="description" required="" ></ion-input>
+      <ion-label>Office Name</ion-label>
+      <ion-input type="text" placeholder="Shop/Farm/Unit Name" [(ngModel)]="data.officeName" name="officeName" required="" ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Phone </ion-label>
-      <ion-input type="number" placeholder="mobile" [(ngModel)]="data.amount" name="amount" required="" ></ion-input>
+      <ion-label>Owner Name</ion-label>
+      <ion-input type="text" placeholder="Owner Name" [(ngModel)]="data.otherNames" name="otherNames" required="" ></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Location </ion-label>
-      <ion-input type="number" placeholder="mobile" [(ngModel)]="data.amount" name="amount" required="" ></ion-input>
+      <ion-label>Mobile</ion-label>
+      <ion-input type="text" placeholder="mobile" [(ngModel)]="data.mobile" name="mobile" required="" ></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select [(ngModel)]="data.gender" name="gender" required="">
+        <ion-option value="Male">Male</ion-option>
+        <ion-option value="Female">Female</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Location" 
+                name="location" 
+                type="text" required 
+                [(ngModel)]="data.location">
+                </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea placeholder="Items/Products" 
+                name="otherInfo" 
+                type="text" 
+                [(ngModel)]="data.otherInfo">
+      </ion-textarea>
     </ion-item>
 
-    
     <ion-input type="hidden" [(ngModel)]="data.rowid" name="rowid"></ion-input>
     <button ion-button type="submit" block>Update Data</button>
   </form>
