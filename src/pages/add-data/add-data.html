@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <h2>Register business</h2>
-  <form (ngSubmit)="saveData()">
+  <form >
       <ion-item>
         <ion-label>Directory</ion-label>
         <ion-select [(ngModel)]="data.directory" name="directory" required="">
@@ -77,7 +77,7 @@
         <ion-icon name="md-camera"></ion-icon>
       </button>
     </ion-item>
-    <button ion-button type="submit" block>Save Data</button>
+    <button ion-button (click)="saveData()" block>Save Data</button>
   </form>
 
 </ion-content>
