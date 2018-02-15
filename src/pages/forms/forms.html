@@ -681,3 +681,82 @@
   </ion-row>
   
 </ion-content>
+
+<ion-content padding *ngIf="egalAgentForm">
+  <ion-row>
+    <ion-col>
+      <ion-list inset>
+        <ion-item>
+          <ion-label>FindMeId</ion-label>
+          <ion-input type="text" placeholder="findMeId" [(ngModel)]="formValues.findMeId" name="findMeId" required="" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Position</ion-label>
+          <ion-select [(ngModel)]="formValues.position">
+            <ion-option value="female">Reginal Director</ion-option>
+            <ion-option value="male">District Director</ion-option>
+            <ion-option value="female">Area Manager</ion-option>
+            <ion-option value="male">Area Boss</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="First Name" 
+          name="officeName" 
+          type="text" required 
+          [(ngModel)]="formValues.officeName">
+        </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Other Names" 
+                     name="otherNames" 
+                     type="text" required 
+                     [(ngModel)]="formValues.otherNames">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Contact Number" 
+                     name="mobile" 
+                     type="text" required 
+                     [(ngModel)]="formValues.mobile">
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Gender</ion-label>
+          <ion-select [(ngModel)]="formValues.gender">
+            <ion-option value="female">Female</ion-option>
+            <ion-option value="male">Male</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-input type="email" 
+                      placeholder="Email"
+                      name="email"  
+                      [(ngModel)]="formValues.email" >
+                  </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Location" 
+                     name="location" 
+                     type="text" required 
+                     [(ngModel)]="formValues.location">
+                    </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <button ion-button round color="primary" (click)="takePicture()" full>
+            <ion-icon name="md-camera"></ion-icon>
+          </button>
+        </ion-item>
+
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+      <div *ngIf="currentLocation" class="alert alert-danger">{{ currentLocation }}</div>
+      <button ion-button class="submit-btn" full (click)="addBusiness()">Add {{selectedName}}</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

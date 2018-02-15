@@ -51,6 +51,7 @@ export class FormsPage {
   public farmerForm: boolean = false;
   public electricianForm: boolean = false;
   public plumberForm: boolean = false;
+  public egalAgentForm: boolean = false;
   merchanicsForm: boolean = false;
   shopsForm: boolean = false;
   schoolsForm: boolean= false;
@@ -58,7 +59,7 @@ export class FormsPage {
   churchesForm: boolean = false;
   dealersForm: boolean = false;
   momoForm: boolean = false;
-
+  
   formValues = {} as Business;
   userId: string;
   public db:SQLiteObject;
@@ -180,6 +181,9 @@ export class FormsPage {
     }else if (this.selectedName == "Herbal Center") {
       this.servicesForm = true;
       console.log('selected dealers form', this.servicesForm);
+    }else if (this.selectedName == "Pharmacy") {
+      this.servicesForm = true;
+      console.log('selected pharmacy form', this.servicesForm);
     }else if (this.selectedName == "Computer Engineer") {
       this.servicesForm = true;
       console.log('selected Computer Engineer form', this.servicesForm);
@@ -312,6 +316,9 @@ export class FormsPage {
     }else if (this.selectedName == "Agro-chemical Shop") {
       this.shopsForm = true;
       console.log('selected Agro-chemical Shop form', this.shopsForm);
+    }else if (this.selectedName == "Shops") {
+      this.shopsForm = true;
+      console.log('selected Shops form', this.shopsForm);
     }else if (this.selectedName == "Car Rentals") {
       this.dealersForm = true;
       console.log('selected Car Rentals form', this.dealersForm);
@@ -336,6 +343,9 @@ export class FormsPage {
     }else if (this.selectedName == "LPG Station") {
       this.servicesForm = true;
       console.log('selected LPG Station form', this.servicesForm);
+    }else if (this.selectedName == "Egal Directories") {
+      this.egalAgentForm = true;
+      console.log('selected Egal Directories form', this.egalAgentForm);
     }
     
     this.setGeoLocation();

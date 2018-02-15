@@ -1,5 +1,17 @@
 {
     "items": [
+        { 
+            "name": "Egal Agents",
+            "children": [
+                {
+                    "name": "Egal Directories",
+                    "information": "All Econnect Global Africa Agents registraton",
+                    "price": "25",
+                    "group": "Egal Agents",
+                    "icon": ""
+                }
+            ]
+        },
         {
             "name": "Artisans",
             "children": [
@@ -319,8 +331,14 @@
                     "price": "19 ",
                     "group": "Merchants and Traders",
                     "icon":""
+                },
+                {
+                    "name": "Shops",
+                    "information": "Any other shops not available now in this directory",
+                    "price": "19 ",
+                    "group": "Merchants and Traders",
+                    "icon":""
                 }
-
             ]
         },
         {
@@ -343,6 +361,13 @@
                 {
                     "name": "Herbal Center",
                     "information": "Centers practicing of the medicinal and therapeutic use of plants.",
+                    "price": "19",
+                    "group": "Health",
+                    "icon":""
+                },
+                {
+                    "name": "Pharmacy",
+                    "information": "Pharmacy is the science and technique of preparing and dispensing drugs",
                     "price": "19",
                     "group": "Health",
                     "icon":""

@@ -100,7 +100,7 @@ export class AddDataPage {
        // If it's base64:
         this.base64Image = 'data:image/jpeg;base64,' + imageData;
         this.imageURI = imageData;
-        this.data.fileUpload = this.base64Image;
+        // this.data.fileUpload = this.base64Image;
         this.photos = this.base64Image;
         this.photos.reverse();
       }, (err) => {
