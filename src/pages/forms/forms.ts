@@ -157,6 +157,9 @@ export class FormsPage {
     }else if (this.selectedName == "Poultry Breeder") {
       this.farmersForm = true;
       console.log('selected Poultry Breeder form', this.farmersForm);
+    }else if (this.selectedName == "Restaurant") {
+      this.farmersForm = true;
+      console.log('selected Restaurants form', this.farmersForm);
     }else if (this.selectedName == "Police Station") {
       this.servicesForm = true;
       console.log('selected police form', this.servicesForm);
@@ -477,13 +480,13 @@ export class FormsPage {
         this.presentToast('Business added successfully') 
         this.navCtrl.pop();
       }, (err) => {
-        console.log(err);
+        console.log(JSON.stringify(err));
         // this.error = err;
         this.isLoading.dismiss();
-        this.presentErrorToast("Service timedout."+"Check Network and try again");
+        this.presentErrorToast("Duplicate entry: phone or mail");
       });
     }else{
-      let msg = 'Oops, no user records, Login';
+      let msg = 'No username, Signout and';
       this.isLoading.dismiss();
       this.presentErrorToast(msg);
       this.navCtrl.setRoot(LoginPage);

@@ -140,6 +140,13 @@
                     "information": "The breeder farm produces fertile eggs that will be hatched in a hatchery.",
                     "price": "19 ",
                     "group": "Food And Agriculture"
+                },
+                {
+                    "name": "Restaurant",
+                    "information": "The best restaurants for breakfast, lunch, dinner, snacks and traditional dining",
+                    "price": "19 ",
+                    "group": "Food And Agriculture",
+                    "icon":""
                 }
             ]
         },
