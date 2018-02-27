@@ -43,8 +43,8 @@ export class SignupPage {
         this.navCtrl.pop();
     }, (err) => {
         this.isLoading.dismiss();
-        console.log('an error occured creating account >>>',err);
-        this.presentToast("Username/Mobile already exists!");
+        console.log('an error occured creating account >>>',JSON.stringify(err));
+        this.presentToast("username or mobile already exists!");
 
         // this.navCtrl.setRoot('TabsPage');
     });
@@ -55,7 +55,7 @@ login(){
  }
   showLoader(){
     this.isLoading = this.loadingCtrl.create({
-        content: 'Authenticating...'
+        content: 'Registering...'
     });
 
     this.isLoading.present();

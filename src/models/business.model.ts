@@ -6,10 +6,19 @@ export class Business {
         public directory?: string,
         public gravatar?: any,
         public officeName?: string,
-        public mobile?: string,
+        public firstName?: string,
+        public middleName?: string,
+        public lastName?: string,
         public otherNames?: string,
-        public email?: string,    
+        public dateOfBirth?: any,
+        public idNo?: string,
+        public email?: string,
+        public mobile?: any,
         public gender?: string,
+        public street?: string,
+        public city?: string,
+        public state?: string,
+        public country?: string,
         public maritalStatus?: string,
         public homeTown?: string,      
         public position?: string,
@@ -23,5 +32,6 @@ export class Business {
         public landSize?: any,
         public otherInfo?: any,
         public timeDate?: any,
-        public dob?:any) {}
+        public dob?:any ) {}
 }
+

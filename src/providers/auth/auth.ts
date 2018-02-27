@@ -13,14 +13,16 @@ import { UserResponse } from './../../models/token.model';
 
 /*
   Generated class for the AuthProvider provider.
-
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
 export class AuthProvider {
   result: any;
+   
+  //  baseUrl: string = "https://sikafone-pymvrkzhqa.now.sh"; //host nabiypy@hotmail.co.uk cape coast
   baseUrl: any = 'http://app-a8f9bd8b-8769-4f5e-b771-34aa090657d0.cleverapps.io';
+  // baseUrl: any = 'https://sikafone-vlqfqnvtfv.now.sh';
   // baseUrl: any = 'http://localhost:8080';
 
   public token: any;
@@ -64,7 +66,7 @@ export class AuthProvider {
   login(credentials: User) {
     console.log('@auth.ts login credentials >>', credentials);
     return new Promise((resolve, reject) => {
-      this.http.post<UserResponse>(this.baseUrl+'/api/authentication', JSON.stringify(credentials),{
+      this.http.post<UserResponse>(this.baseUrl+'api/authenticate', JSON.stringify(credentials),{
         headers: new HttpHeaders({'Content-type':'application/json'})    
       })
         .subscribe(res => {
@@ -83,7 +85,7 @@ export class AuthProvider {
   signIn(data: User){
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({"Content-Type" : "application/json"})
-      this.http.post<UserResponse>(this.baseUrl+'/api/authentication', JSON.stringify(data),{headers})
+      this.http.post<UserResponse>(this.baseUrl+'/api/authenticate', JSON.stringify(data),{headers})
         .map(res => this.result = res)
         .subscribe(res => {
           console.log('User signIn response >>>',res.token);

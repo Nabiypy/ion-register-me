@@ -73,7 +73,7 @@ export class OfflinePage {
       console.log(err);
       // this.error = err;
       this.isLoading.dismiss().catch(() => {});
-      this.presentToast('Oops, an error occured deleting business');
+      this.presentToast('an error occured deleting business');
     });
   }
 

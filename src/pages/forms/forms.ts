@@ -52,6 +52,7 @@ export class FormsPage {
   public electricianForm: boolean = false;
   public plumberForm: boolean = false;
   public egalAgentForm: boolean = false;
+  public ecobankXpressAccount: boolean = false;
   merchanicsForm: boolean = false;
   shopsForm: boolean = false;
   schoolsForm: boolean= false;
@@ -107,7 +108,7 @@ export class FormsPage {
       this.userId = userId;
       this.formValues.userId = userId;
       this.formValues.findMeId = this.restProvider.generateFindMeId();
-      // this.formValues.findMeId = "FNDM2018";
+      // this.formValues.findMeId = "FNDM2020";
     });
     if (this.selectedName == 'Electrician') {
       this.electricianForm = true;
@@ -268,6 +269,9 @@ export class FormsPage {
     }else if (this.selectedName == "Seamstress") {
       this.merchanicsForm = true;
       console.log('selected Seamstress form', this.merchanicsForm);
+    }else if (this.selectedName == "Tailor") {
+      this.merchanicsForm = true;
+      console.log('selected Tailor form', this.merchanicsForm);
     }else if (this.selectedName == "Information Centers") {
       this.merchanicsForm = true;
       console.log('selected Information Centers form', this.merchanicsForm);
@@ -349,6 +353,9 @@ export class FormsPage {
     }else if (this.selectedName == "Egal Directories") {
       this.egalAgentForm = true;
       console.log('selected Egal Directories form', this.egalAgentForm);
+    }else if (this.selectedName == "Ecobank Xpress Account") {
+      this.ecobankXpressAccount = true;
+      console.log('selected Ecobank Xpress Account form', this.ecobankXpressAccount);
     }
     
     this.setGeoLocation();
@@ -390,7 +397,14 @@ export class FormsPage {
       console.log('position resp >> ', resp.coords);
     }).catch((error) => {
       // this.error = error;
-      console.log('error: true', this.error);
+      console.log('error: true, '+' message: ', error);
+      this.presentErrorToast('NO GPS coordinates, NO Geolocation');
+      this.presentErrorToast('Please turn on GPS Location service');
+      this.toast.show('Check Network Location service', '5000', 'top').subscribe(
+        toast => {
+          console.log(toast);
+        }
+      );
     });
   }
   
@@ -483,12 +497,20 @@ export class FormsPage {
         console.log(JSON.stringify(err));
         // this.error = err;
         this.isLoading.dismiss();
-        this.presentErrorToast("Duplicate entry: phone or mail");
+        this.presentErrorToast("An error occured >>> ");
+        console.log('duplicate entry');
+        this.presentErrorToast("duplicate entry: phone number used >>> "+ JSON.stringify(err));
+        this.toast.show('Check Network Location service', '5000', 'center').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
       });
     }else{
       let msg = 'No username, Signout and';
       this.isLoading.dismiss();
-      this.presentErrorToast(msg);
+      this.presentErrorToast('No username');
+      this.presentErrorToast('Please signout and restart the app');
       this.navCtrl.setRoot(LoginPage);
     }
   }
@@ -512,7 +534,7 @@ export class FormsPage {
   presentErrorToast(msg) {
     this.isToast = this.toastCtrl.create({
     message: msg,
-    duration: 4000,
+    duration: 6000,
     position: 'middle'
   });
   this.isToast.onDidDismiss(() => {

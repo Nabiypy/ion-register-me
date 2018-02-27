@@ -47,6 +47,47 @@
                           </ion-input>
               </ion-item>
               <ion-item>
+                  <ion-label floating>First Name</ion-label>
+                  <ion-input 
+                    name="firstName" 
+                    type="text" required 
+                    [(ngModel)]="data.firstName">
+                  </ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>Middle Name</ion-label>
+                  <ion-input
+                             name="middleName" 
+                             type="text" required 
+                             [(ngModel)]="data.middleName">
+                            </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Last Name</ion-label>
+                    <ion-input 
+                               name="lastName" 
+                               type="text" required 
+                               [(ngModel)]="data.lastName">
+                              </ion-input>
+                </ion-item>
+              <ion-item>
+                  <ion-label floating>Date of Birth</ion-label>
+                  <ion-datetime 
+                    name="dataOfBirth"
+                    displayFormat="DD/MM/YYYY" 
+                    [(ngModel)]="data.dateOfBirth">
+                  </ion-datetime>
+                </ion-item>
+          
+                 <ion-item>
+                  <ion-label floating>ID(Voter's, NHIS, Passport)</ion-label>
+                  <ion-input 
+                             name="idNo" 
+                             type="text" required 
+                             [(ngModel)]="data.idNo">
+                            </ion-input>
+                </ion-item>
+              <ion-item>
                 <ion-input placeholder="Contact Number" 
                            name="mobile" 
                            type="text" required 
@@ -75,7 +116,45 @@
                             [(ngModel)]="data.websiteUrl">
                           </ion-input>
             </ion-item>
+            <ion-item>
+                <ion-label floating>Street</ion-label>
+                <ion-input 
+                           name="street" 
+                           type="text" required 
+                           [(ngModel)]="data.street">
+                          </ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>City</ion-label>
+                  <ion-input 
+                             name="city" 
+                             type="text" required 
+                             [(ngModel)]="data.city">
+                            </ion-input>
+                </ion-item>
         
+              <ion-item>
+                <ion-label floating>State</ion-label>
+                <ion-select [(ngModel)]="data.state" name="state">
+                  <ion-option value="Greater Accra">Greater Accra</ion-option>
+                  <ion-option value="Upper East">Upper East</ion-option>
+                  <ion-option value="Upper West">Upper West</ion-option>
+                  <ion-option value="Northern">Northern Region</ion-option>
+                  <ion-option value="Eastern">Eastern Region</ion-option>
+                  <ion-option value="Western">Western Region</ion-option>
+                  <ion-option value="Brong Ahafo">Brong Ahafo</ion-option>
+                  <ion-option value="Ashanti">Ashanti Region</ion-option>
+                  <ion-option value="Volta">Volta Region</ion-option>
+                  <ion-option value="Central">Central Region</ion-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>Country</ion-label>
+                  <ion-select [(ngModel)]="data.country" name="country">
+                    <ion-option value="Ghana">Ghana</ion-option>
+                    <ion-option value="Nigeria">Nigeria</ion-option>
+                  </ion-select>
+              </ion-item>
             </ion-list>
           </ion-col>
         </ion-row>

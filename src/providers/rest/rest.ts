@@ -12,7 +12,10 @@ import { Business } from './../../models/business.model';
 */
 @Injectable()
 export class RestProvider {
+  //host nabiypy@hotmail.co.uk
+  // baseUrl: string = "https://sikafone-pymvrkzhqa.now.sh";
   baseUrl: any = 'http://app-a8f9bd8b-8769-4f5e-b771-34aa090657d0.cleverapps.io';
+  // baseUrl: any = 'https://sikafone-vlqfqnvtfv.now.sh';
   // baseUrl: any = 'http://localhost:8080';
 
   result: any;
@@ -65,7 +68,6 @@ export class RestProvider {
       }, (err) => {
         reject(err);
       });
-
     });
   }
 

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { Storage } from '@ionic/storage';
+import { Toast } from '@ionic-native/toast';
 
 /**
  * Generated class for the UploadsPage page.
@@ -48,10 +49,12 @@ export class UploadsPage {
               public storage: Storage,
               private loadingCtrl: LoadingController,
               private toastCtrl: ToastController,
+              private toast: Toast,
               private restProvider: RestProvider) {
             console.log('all expenses >>>',JSON.stringify(this.expenses));
             console.log('geocode >>>',JSON.stringify(this.latitude));
             console.log('const userId >>>',JSON.stringify(this.userId));
+            this.setGeoLocation();
 
   }
 
@@ -78,8 +81,15 @@ export class UploadsPage {
       this.latitude = resp.coords.latitude;
       console.log('position resp >> ', resp.coords);
     }).catch((error) => {
+      this.presentToast('NO GPS coordinates, NO Geolocation');
       // this.error = error;
-      console.log('error: true',JSON.stringify(error));
+      console.log('error: true, '+' message: ', error);
+      this.presentToast('Please turn on your GPS Locator');
+      this.toast.show('Check Network Location service', '5000', 'bottom').subscribe(
+        toast => {
+          console.log(toast);
+        }
+      );
     });
   }
 
@@ -157,7 +167,12 @@ export class UploadsPage {
         console.log('error posting offline form data',JSON.stringify(err));
         // this.error = err;
         this.isLoading.dismiss();
-        this.presentToast("service timed out."+"try again");
+        this.presentToast("error posting offline form data"+"check your location serivce");
+        this.toast.show('Check Network Location service', '5000', 'center').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
       });
     }else{
       let msg = 'Oops, no user records, Login';
@@ -177,7 +192,7 @@ export class UploadsPage {
   presentToast(msg) {
     this.isToast = this.toastCtrl.create({
     message: msg,
-    duration: 4000,
+    duration: 6000,
     position: 'middle'
     });
     this.isToast.present();
