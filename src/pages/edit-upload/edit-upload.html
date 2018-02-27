@@ -25,22 +25,24 @@
                     </div>
               </ion-item>
             <ion-item>
-                <ion-label>FindMeId</ion-label>
+                <ion-label floating>FindMeId</ion-label>
                 <ion-input type="text" 
-                  placeholder="findMeId" 
+                 
                   [(ngModel)]="data.findMeId" 
                   name="findMeId" required="" >
                 </ion-input>
               </ion-item>
               <ion-item>
-                <ion-input placeholder={{data.officeName}} 
+                <ion-label floating>{{data.officeName}} </ion-label>
+                <ion-input
                            name="officeName" 
                            type="text" required 
                            [(ngModel)]="data.officeName">
                           </ion-input>
               </ion-item>
               <ion-item>
-                <ion-input placeholder="Owner Name" 
+                <ion-label floating>Owner Name</ion-label>
+                <ion-input
                            name="otherNames" 
                            type="text" required 
                            [(ngModel)]="data.otherNames">
@@ -73,14 +75,22 @@
               <ion-item>
                   <ion-label floating>Date of Birth</ion-label>
                   <ion-datetime 
-                    name="dataOfBirth"
+                    name="dateOfBirth"
                     displayFormat="DD/MM/YYYY" 
                     [(ngModel)]="data.dateOfBirth">
                   </ion-datetime>
                 </ion-item>
-          
+                <ion-item>
+                  <ion-label floationg>Select ID Type</ion-label>
+                  <ion-select [(ngModel)]="data.idType" name="idType">
+                    <ion-option value="voter">Voter's ID</ion-option>
+                    <ion-option value="NHIS">NHIS ID</ion-option>
+                    <ion-option value="passport">Passport ID</ion-option>
+                    <ion-option value="national">National ID</ion-option>
+                  </ion-select>
+                </ion-item>
                  <ion-item>
-                  <ion-label floating>ID(Voter's, NHIS, Passport)</ion-label>
+                  <ion-label floating>Enter Selected ID</ion-label>
                   <ion-input 
                              name="idNo" 
                              type="text" required 
@@ -88,7 +98,8 @@
                             </ion-input>
                 </ion-item>
               <ion-item>
-                <ion-input placeholder="Contact Number" 
+                <ion-label floating>Phone number</ion-label>
+                <ion-input  
                            name="mobile" 
                            type="text" required 
                            [(ngModel)]="data.mobile">
@@ -96,6 +107,7 @@
               </ion-item>
         
               <ion-item>
+                <ion-label floating>Location</ion-label>
                 <ion-input placeholder="Location" 
                            name="homeTown" 
                            type="text" required 
@@ -103,14 +115,16 @@
                           </ion-input>
               </ion-item>
               <ion-item>
-                <ion-input placeholder="Email Address" 
+                <ion-label floating>Email</ion-label>
+                <ion-input  
                            name="email" 
                            type="email" 
                            [(ngModel)]="data.email">
                           </ion-input>
               </ion-item>
               <ion-item>
-                <ion-input placeholder="Website" 
+                <ion-label floating>Website</ion-label>
+                <ion-input
                             name="websiteUrl" 
                             type="text" 
                             [(ngModel)]="data.websiteUrl">
