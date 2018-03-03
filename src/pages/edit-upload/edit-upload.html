@@ -33,7 +33,7 @@
                 </ion-input>
               </ion-item>
               <ion-item>
-                <ion-label floating>{{data.officeName}} </ion-label>
+                <ion-label floating>Office/ Shop Name</ion-label>
                 <ion-input
                            name="officeName" 
                            type="text" required 
@@ -72,13 +72,9 @@
                                [(ngModel)]="data.lastName">
                               </ion-input>
                 </ion-item>
-              <ion-item>
-                  <ion-label floating>Date of Birth</ion-label>
-                  <ion-datetime 
-                    name="dateOfBirth"
-                    displayFormat="DD/MM/YYYY" 
-                    [(ngModel)]="data.dateOfBirth">
-                  </ion-datetime>
+                <ion-item>
+                  <ion-label floating>Date of Birth: YYYY-MM-DD </ion-label>
+                  <ion-input type="tel" name="dateOfBirth" [(ngModel)]="data.dateOfBirth"></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-label floationg>Select ID Type</ion-label>
@@ -147,21 +143,21 @@
                             </ion-input>
                 </ion-item>
         
-              <ion-item>
-                <ion-label floating>State</ion-label>
-                <ion-select [(ngModel)]="data.state" name="state">
-                  <ion-option value="Greater Accra">Greater Accra</ion-option>
-                  <ion-option value="Upper East">Upper East</ion-option>
-                  <ion-option value="Upper West">Upper West</ion-option>
-                  <ion-option value="Northern">Northern Region</ion-option>
-                  <ion-option value="Eastern">Eastern Region</ion-option>
-                  <ion-option value="Western">Western Region</ion-option>
-                  <ion-option value="Brong Ahafo">Brong Ahafo</ion-option>
-                  <ion-option value="Ashanti">Ashanti Region</ion-option>
-                  <ion-option value="Volta">Volta Region</ion-option>
-                  <ion-option value="Central">Central Region</ion-option>
-                </ion-select>
-              </ion-item>
+                <ion-item>
+                  <ion-label floating>State</ion-label>
+                  <ion-select [(ngModel)]="data.state">
+                    <ion-option value="greater accra">Greater Accra</ion-option>
+                    <ion-option value="upper east">Upper East</ion-option>
+                    <ion-option value="upper west">Upper West</ion-option>
+                    <ion-option value="northern region">Northern Region</ion-option>
+                    <ion-option value="eastern region">Eastern Region</ion-option>
+                    <ion-option value="western region">Western Region</ion-option>
+                    <ion-option value="brong ahafo">Brong Ahafo</ion-option>
+                    <ion-option value="ashanti region">Ashanti Region</ion-option>
+                    <ion-option value="volta region">Volta Region</ion-option>
+                    <ion-option value="central region">Central Region</ion-option>
+                  </ion-select>
+                </ion-item>
               <ion-item>
                   <ion-label floating>Country</ion-label>
                   <ion-select [(ngModel)]="data.country" name="country">

@@ -1,5 +1,5 @@
 import { LoginPage } from './../login/login';
-import { Component } from '@angular/core';
+import { Component, Directive, Attribute } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Business } from '../../models/business.model';
 import { RestProvider } from './../../providers/rest/rest';
@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { Toast } from '@ionic-native/toast';
+import { BrModel } from './../../models/brModel';
 
 const DATABASE_FILE_NAME: string ="data.db";
 
@@ -29,6 +30,7 @@ const DATABASE_FILE_NAME: string ="data.db";
 })
 
 export class FormsPage {
+  public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   error: any;
   isLoading: any;
   isToast: any;
@@ -408,6 +410,34 @@ export class FormsPage {
     });
   }
   
+  takeCardPicture(){
+    console.log('take id card picture ...');
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      targetWidth: 100,
+      targetHeight: 100,
+      saveToPhotoAlbum: false
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64:
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.imageURI = imageData;
+      this.formValues.fileUpload = this.base64Image;
+      this.formValues.idPicture = imageData;
+      this.photos = this.base64Image;
+      this.photos.reverse();
+    }, (err) => {
+     // Handle error
+     let errMsg = 'error taking picture'
+     console.log('error taking picture>>>' + err);
+     this.presentErrorToast(errMsg);
+    });
+  }
   takePicture(){
     console.log('take picture');
     const options: CameraOptions = {
@@ -426,6 +456,7 @@ export class FormsPage {
       this.base64Image = 'data:image/jpeg;base64,' + imageData;
       this.imageURI = imageData;
       this.formValues.fileUpload = this.base64Image;
+      this.formValues.gravatar = imageData;
       this.photos = this.base64Image;
       this.photos.reverse();
     }, (err) => {
